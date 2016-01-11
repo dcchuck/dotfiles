@@ -11,3 +11,10 @@ if [ ! -h .tmux.conf ]; then
 	ln -s ~/dotfiles/tmux.conf .tmux.conf
 	echo ".tmux.conf symlink created"
 fi
+
+if [ ! -h /bin/tat ]; then
+	cd /bin
+	sudo ln -s ~/dotfiles/bin/tat tat
+	cd ~
+	echo "You now have the power of tat, courtesy of Upcase"
+fi
