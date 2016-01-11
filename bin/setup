@@ -1,0 +1,13 @@
+#!/bin/sh
+
+cd ~
+
+if [ ! -h .vimrc ]; then
+	ln -s ~/dotfiles/vimrc .vimrc
+	echo ".vimrc symlink created"
+fi
+
+if [ ! -h .tmux.conf ]; then
+	ln -s ~/dotfiles/tmux.conf .tmux.conf
+	echo ".tmux.conf symlink created"
+fi
