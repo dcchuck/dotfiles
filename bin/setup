@@ -13,7 +13,7 @@ if [ ! -h .tmux.conf ]; then
 fi
 
 if [ ! -h /bin/tat ]; then
-	cd /bin
+	cd /usr/local/bin
 	sudo ln -s ~/dotfiles/bin/tat tat
 	cd ~
 	echo "You now have the power of tat, courtesy of Upcase"
