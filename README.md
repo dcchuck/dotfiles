@@ -2,6 +2,6 @@
 
 Todo -
 
-	1) Add automation installation for latest upgrades
-	2) Learn rails.vim and install
-	3) Add Rspec.vim and install
+	1) Learn rails.vim and install
+	2) Add Rspec.vim and install
+  3) Add vimplug download to bin/setup
