@@ -34,3 +34,10 @@ augroup CursorLineOnlyInActiveWindow
 	autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
 	autocmd WinLeave * setlocal nocursorline
 augroup END
+
+let mapleader = "\<Space>"
+
+nmap <leader>so :source $MYVIMRC<cr>
+
+imap jk <esc>
+imap kj <esc>
