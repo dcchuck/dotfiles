@@ -6,6 +6,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'altercation/vim-colors-solarized'
   Plug 'christoomey/vim-tmux-navigator'
+  Plug 'kchmck/vim-coffee-script'
+  Plug 'digitaltoad/vim-pug'
+  Plug 'jelera/vim-javascript-syntax'
+  Plug 'ervandew/supertab'
   
 call plug#end()
 
@@ -41,3 +45,5 @@ nmap <leader>so :source $MYVIMRC<cr>
 
 imap jk <esc>
 imap kj <esc>
+
+set backspace=2
