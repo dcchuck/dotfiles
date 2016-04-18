@@ -29,15 +29,17 @@ autocmd VimResized * :wincmd =
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 
-"set laststatus=2
-
-set colorcolumn=81
-
 augroup CursorLineOnlyInActiveWindow
 	autocmd!
 	autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
 	autocmd WinLeave * setlocal nocursorline
 augroup END
+
+" augroup CursorColumnOnlyInActiveWindow
+" 	autocmd!
+" 	autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn
+" 	autocmd WinLeave * setlocal nocursorcolumn
+" augroup END
 
 let mapleader = "\<Space>"
 
