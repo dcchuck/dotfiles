@@ -4,7 +4,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-commentary'
-  Plug 'altercation/vim-colors-solarized'
+  Plug 'flazz/vim-colorschemes'
+  " Plug 'altercation/vim-colors-solarized'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'kchmck/vim-coffee-script'
   Plug 'digitaltoad/vim-pug'
@@ -14,9 +15,10 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 syntax enable
-set background=light
-let g:solarized_termcolors=256
-colorscheme solarized
+" set background=light
+" let g:solarized_termcolors=256
+set t_Co=256
+colorscheme PaperColor
 
 set number
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
