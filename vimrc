@@ -51,3 +51,5 @@ imap jk <esc>
 imap kj <esc>
 
 set backspace=2
+
+au BufNewFile,BufRead *.ejs set filetype=html
