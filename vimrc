@@ -5,18 +5,16 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-commentary'
   Plug 'flazz/vim-colorschemes'
-  " Plug 'altercation/vim-colors-solarized'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'kchmck/vim-coffee-script'
   Plug 'digitaltoad/vim-pug'
   Plug 'jelera/vim-javascript-syntax'
   Plug 'ervandew/supertab'
+  Plug 'dkprice/vim-easygrep'
   
 call plug#end()
 
 syntax enable
-" set background=light
-" let g:solarized_termcolors=256
 set t_Co=256
 colorscheme PaperColor
 
