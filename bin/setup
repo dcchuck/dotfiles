@@ -17,7 +17,7 @@ if [ ! -h .tmux.conf ]; then
 	echo ".tmux.conf symlink created"
 fi
 
-if [ ! -h /bin/tat ]; then
+if [ ! -h /usr/local/bin/tat ]; then
 	cd /usr/local/bin
 	ln -s ~/dotfiles/bin/tat tat
 	cd ~
