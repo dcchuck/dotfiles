@@ -7,6 +7,11 @@ if [ ! -h .vimrc ]; then
 	echo ".vimrc symlink created"
 fi
 
+if [ ! -h .oh-my-zsh/themes/friskChuck.zsh-theme ]; then
+  ln -s ~/dotfiles/friskChuck.zsh-theme .oh-my-zsh/themes/friskChuck.zsh-theme
+	echo "friskChuck theme added"
+fi
+
 if [ ! -h .tmux.conf ]; then
 	ln -s ~/dotfiles/tmux.conf .tmux.conf
 	echo ".tmux.conf symlink created"
