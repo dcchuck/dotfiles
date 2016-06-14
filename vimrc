@@ -18,6 +18,9 @@ syntax enable
 set t_Co=256
 colorscheme PaperColor
 
+" Search highlighting and toggle off
+set hlsearch
+
 set number
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set clipboard=unnamed
@@ -43,11 +46,13 @@ augroup END
 
 let mapleader = "\<Space>"
 
-nmap <leader>so :source $MYVIMRC<cr>
-
 imap jk <esc>
 imap kj <esc>
 
 set backspace=2
 
 au BufNewFile,BufRead *.ejs set filetype=html
+
+"Leader Mappings
+nmap <leader>so :source $MYVIMRC<cr>             " so -> source file
+nmap <leader>h :nohlsearch<cr>                   " h  -> clear search highlight
