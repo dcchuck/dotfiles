@@ -35,11 +35,11 @@ augroup CursorLineOnlyInActiveWindow
 	autocmd WinLeave * setlocal nocursorline
 augroup END
 
-" augroup CursorColumnOnlyInActiveWindow
-" 	autocmd!
-" 	autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn
-" 	autocmd WinLeave * setlocal nocursorcolumn
-" augroup END
+augroup CursorColumnOnlyInActiveWindow
+	autocmd!
+	autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn
+	autocmd WinLeave * setlocal nocursorcolumn
+augroup END
 
 let mapleader = "\<Space>"
 
