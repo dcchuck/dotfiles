@@ -54,5 +54,5 @@ set backspace=2
 au BufNewFile,BufRead *.ejs set filetype=html
 
 "Leader Mappings
-nmap <leader>so :source $MYVIMRC<cr>             " so -> source file
-nmap <leader>h :nohlsearch<cr>                   " h  -> clear search highlight
+nmap <leader>so :source $MYVIMRC<cr>
+nmap <leader>h :nohlsearch<cr>
