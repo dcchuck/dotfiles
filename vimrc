@@ -22,9 +22,14 @@ colorscheme PaperColor
 set hlsearch
 
 set number
+set relativenumber
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set clipboard=unnamed
 set colorcolumn=81
+
+" new splits open by default underneath or to the right
+set splitbelow
+set splitright
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
