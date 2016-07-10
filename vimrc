@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-fugitive'
   Plug 'flazz/vim-colorschemes'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'kchmck/vim-coffee-script'
@@ -22,7 +23,6 @@ colorscheme PaperColor
 set hlsearch
 
 set number
-set relativenumber
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set clipboard=unnamed
 set colorcolumn=81
