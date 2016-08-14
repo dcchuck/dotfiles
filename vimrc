@@ -61,3 +61,13 @@ au BufNewFile,BufRead *.ejs set filetype=html
 "Leader Mappings
 nmap <leader>so :source $MYVIMRC<cr>
 nmap <leader>h :nohlsearch<cr>
+
+
+hi User1 ctermfg=red
+
+set laststatus=2
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h
+set statusline+=%1*
+set statusline+=%m
+set statusline+=%*
+set statusline+=%r%y%=%c,%l/%L\ %P
