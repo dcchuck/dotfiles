@@ -66,8 +66,8 @@ nmap <leader>h :nohlsearch<cr>
 hi User1 ctermfg=red ctermbg=yellow
 
 set laststatus=2
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%r%y
 set statusline+=%1*
 set statusline+=%m
 set statusline+=%*
-set statusline+=%r%y%=%c,%l/%L\ %P
+set statusline+=%=%c,%l/%L\ %P
