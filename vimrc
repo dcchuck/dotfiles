@@ -63,7 +63,7 @@ nmap <leader>so :source $MYVIMRC<cr>
 nmap <leader>h :nohlsearch<cr>
 
 
-hi User1 ctermfg=3 ctermbg=52
+hi User1 ctermfg=white ctermbg=red
 
 set laststatus=2
 set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%r%y
