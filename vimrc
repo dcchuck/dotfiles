@@ -61,7 +61,8 @@ au BufNewFile,BufRead *.ejs set filetype=html
 "Leader Mappings
 nmap <leader>so :source $MYVIMRC<cr>
 nmap <leader>h :nohlsearch<cr>
-
+nmap <leader>w :w<cr>
+nmap <leader>q :q<cr>
 
 hi User1 ctermfg=white ctermbg=red
 
