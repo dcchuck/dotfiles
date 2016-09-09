@@ -63,6 +63,8 @@ nmap <leader>so :source $MYVIMRC<cr>
 nmap <leader>h :nohlsearch<cr>
 nmap <leader>w :w<cr>
 nmap <leader>q :q<cr>
+nmap <leader>W :wq<cr>
+nmap <leader>Q :qa<cr>
 
 hi User1 ctermfg=white ctermbg=red
 
