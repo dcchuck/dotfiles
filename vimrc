@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-endwise'
   Plug 'flazz/vim-colorschemes'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'kchmck/vim-coffee-script'
