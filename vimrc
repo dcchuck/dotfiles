@@ -13,7 +13,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'jelera/vim-javascript-syntax'
   Plug 'ervandew/supertab'
   Plug 'dkprice/vim-easygrep'
-  
+  Plug 'dcchuck/tabline.vim'
+
 call plug#end()
 
 syntax enable
@@ -66,6 +67,7 @@ nmap <leader>w :w<cr>
 nmap <leader>q :q<cr>
 nmap <leader>W :wq<cr>
 nmap <leader>Q :qa<cr>
+nmap <expr> <leader>j nr2char(getchar()).'gt'
 
 hi User1 ctermfg=white ctermbg=red
 
@@ -76,5 +78,10 @@ set statusline+=%m
 set statusline+=%*
 set statusline+=%=%c,%l/%L\ %P
 
-au insertenter * hi StatusLine ctermfg=226 ctermbg=54
+au insertenter * hi StatusLine ctermfg=white ctermbg=red
 au insertleave * hi StatusLine ctermfg=254 ctermbg=24
+
+" Configure tabline color scheme
+hi TabLine ctermfg=24 ctermbg=31
+hi TabLineFill ctermbg=31
+hi TabLineSel ctermfg=24 ctermbg=255 cterm=bold
