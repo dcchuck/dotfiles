@@ -67,7 +67,7 @@ nmap <leader>w :w<cr>
 nmap <leader>q :q<cr>
 nmap <leader>W :wq<cr>
 nmap <leader>Q :qa<cr>
-nmap <expr> <leader>j nr2char(getchar()).'gt'
+nmap <expr> <leader> nr2char(getchar()).'gt'
 
 hi User1 ctermfg=white ctermbg=red
 
