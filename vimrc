@@ -61,13 +61,13 @@ set backspace=2
 au BufNewFile,BufRead *.ejs set filetype=html
 
 "Leader Mappings
+nmap <expr> <leader> nr2char(getchar()).'gt'
 nmap <leader>so :source $MYVIMRC<cr>
 nmap <leader>h :nohlsearch<cr>
 nmap <leader>w :w<cr>
 nmap <leader>q :q<cr>
 nmap <leader>W :wq<cr>
 nmap <leader>Q :qa<cr>
-nmap <expr> <leader> nr2char(getchar()).'gt'
 
 hi User1 ctermfg=white ctermbg=red
 
@@ -82,6 +82,6 @@ au insertenter * hi StatusLine ctermfg=white ctermbg=red
 au insertleave * hi StatusLine ctermfg=254 ctermbg=24
 
 " Configure tabline color scheme
-hi TabLine ctermfg=24 ctermbg=31
-hi TabLineFill ctermbg=31
+hi TabLine ctermfg=24 ctermbg=36
+hi TabLineFill ctermbg=36
 hi TabLineSel ctermfg=24 ctermbg=255 cterm=bold
