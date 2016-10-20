@@ -12,7 +12,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'digitaltoad/vim-pug'
   Plug 'jelera/vim-javascript-syntax'
   Plug 'ervandew/supertab'
-  Plug 'dkprice/vim-easygrep'
   Plug 'dcchuck/tabline.vim'
 
 call plug#end()
@@ -69,8 +68,6 @@ nmap <leader>q :q<cr>
 nmap <leader>W :wq<cr>
 nmap <leader>Q :qa<cr>
 
-hi User1 ctermfg=white ctermbg=red
-
 set laststatus=2
 set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%r%y
 set statusline+=%1*
@@ -78,6 +75,7 @@ set statusline+=%m
 set statusline+=%*
 set statusline+=%=%c,%l/%L\ %P
 
+hi User1 ctermfg=white ctermbg=red
 au insertenter * hi StatusLine ctermfg=white ctermbg=red
 au insertleave * hi StatusLine ctermfg=254 ctermbg=24
 
