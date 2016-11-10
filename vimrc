@@ -83,3 +83,6 @@ au insertleave * hi StatusLine ctermfg=254 ctermbg=24
 hi TabLine ctermfg=24 ctermbg=36
 hi TabLineFill ctermbg=36
 hi TabLineSel ctermfg=24 ctermbg=255 cterm=bold
+
+set list
+set listchars=eol:¬,tab:->,trail:~,extends:>,precedes:<
