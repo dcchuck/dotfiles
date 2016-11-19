@@ -13,6 +13,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'jelera/vim-javascript-syntax'
   Plug 'ervandew/supertab'
   Plug 'dcchuck/tabline.vim'
+  Plug 'MarcWeber/vim-addon-mw-utils'
+  Plug 'tomtom/tlib_vim'
+  Plug 'garbas/vim-snipmate'
+  Plug 'honza/vim-snippets'
 
 call plug#end()
 
