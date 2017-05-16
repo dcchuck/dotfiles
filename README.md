@@ -1,3 +1,6 @@
 # dotfiles
 
-bin/setup to install
+Welcome to my `dotfiles`
+
+* bin/setup to install everything
+* Questions are [welcome](https://github.com/dcchuck/dotfiles/issues)
