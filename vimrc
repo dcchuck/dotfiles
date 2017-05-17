@@ -9,8 +9,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'flazz/vim-colorschemes'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'jelera/vim-javascript-syntax'
-  Plug 'ervandew/supertab'
   Plug 'dcchuck/tabline.vim'
+  Plug 'vim-syntastic/syntastic'
+  Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
@@ -22,7 +23,7 @@ colorscheme PaperColor
 set hlsearch
 
 set number
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set clipboard=unnamed
 set colorcolumn=81
 
@@ -55,17 +56,6 @@ imap kj <esc>
 
 set backspace=2
 
-au BufNewFile,BufRead *.ejs set filetype=html
-
-"Leader Mappings
-nmap <expr> <leader> nr2char(getchar()).'gt'
-nmap <leader>so :source $MYVIMRC<cr>
-nmap <leader>h :nohlsearch<cr>
-nmap <leader>w :w<cr>
-nmap <leader>q :q<cr>
-nmap <leader>W :wq<cr>
-nmap <leader>Q :qa<cr>
-
 set laststatus=2
 set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%r%y
 set statusline+=%1*
@@ -82,5 +72,34 @@ hi TabLine ctermfg=24 ctermbg=36
 hi TabLineFill ctermbg=36
 hi TabLineSel ctermfg=24 ctermbg=255 cterm=bold
 
-set list
-set listchars=eol:¬,tab:->,trail:~,extends:>,precedes:<
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['eslint']
+
+"Spellcheck in markdown files
+autocmd BufRead,BufNewFile *.md setlocal spell
+
+" Autocomplete with dictionary words when spell check is on
+set complete+=kspell
+autocmd BufRead,BufNewFile *.md imap <Tab> <C-P>
+autocmd BufRead,BufNewFile *.md setlocal spell
+
+autocmd BufRead,BufNewFile *.js imap <Tab> <C-X><C-O>
+
+"Leader Mappings
+nmap <expr> <leader> nr2char(getchar()).'gt'
+nmap <leader>so :source $MYVIMRC<cr>
+nmap <leader>h :nohlsearch<cr>
+nmap <leader>w :w<cr>
+nmap <leader>q :q<cr>
+nmap <leader>W :wq<cr>
+nmap <leader>Q :qa<cr>
+nmap <leader>S :SyntasticReset<cr>
+nmap <leader>H :SyntasticToggleMode<cr>

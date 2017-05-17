@@ -57,6 +57,7 @@ alias sourceme="source ~/.zshrc"
 # Templates
 alias tmplHTML="cp ~/dotfiles/templates/index.html ."
 alias tmplICO="cp ~/dotfiles/templates/favicon.ico ."
+alias tmplGIT="cp ~/dotfiles/templates/nodegit"
 
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
