@@ -72,13 +72,8 @@ hi TabLine ctermfg=24 ctermbg=36
 hi TabLineFill ctermbg=36
 hi TabLineSel ctermfg=24 ctermbg=255 cterm=bold
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_javascript_checkers = ['eslint']
@@ -86,11 +81,12 @@ let g:syntastic_javascript_checkers = ['eslint']
 "Spellcheck in markdown files
 autocmd BufRead,BufNewFile *.md setlocal spell
 
-" Autocomplete with dictionary words when spell check is on
+" Tabe complete with dictionary words when spell check is on
 set complete+=kspell
 autocmd BufRead,BufNewFile *.md imap <Tab> <C-P>
 autocmd BufRead,BufNewFile *.md setlocal spell
 
+" Tab javascript files #pending
 autocmd BufRead,BufNewFile *.js imap <Tab> <C-X><C-O>
 
 "Leader Mappings
