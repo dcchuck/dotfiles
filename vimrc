@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'dcchuck/tabline.vim'
   Plug 'vim-syntastic/syntastic'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'ervandew/supertab'
 
 call plug#end()
 
@@ -86,8 +87,8 @@ set complete+=kspell
 autocmd BufRead,BufNewFile *.md imap <Tab> <C-P>
 autocmd BufRead,BufNewFile *.md setlocal spell
 
-" Tab javascript files #pending
-autocmd BufRead,BufNewFile *.js imap <Tab> <C-X><C-O>
+" Native tab complete for javascript files seems to not support ES6 syntax
+" autocmd BufRead,BufNewFile *.js imap <Tab> <C-X><C-O>
 
 "Leader Mappings
 nmap <expr> <leader> nr2char(getchar()).'gt'
