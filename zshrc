@@ -50,14 +50,19 @@ source $ZSH/oh-my-zsh.sh
 
 # For a full list of active aliases, run `alias`.
 
+# Productivity
 alias sml="/usr/local/Cellar/smlnj/110.80/bin/sml"
 alias ntree="tree -I node_modules"
 alias sourceme="source ~/.zshrc"
+alias notesdrive="cp -r ~/dotfiles/notes ~/Google\ Drive"
+
+# Github
+alias Gorigin="git remote show origin"
 
 # Templates
 alias tmplHTML="cp ~/dotfiles/templates/index.html ."
 alias tmplICO="cp ~/dotfiles/templates/favicon.ico ."
-alias tmplGIT="cp ~/dotfiles/templates/nodegit"
+alias tmplGIT="cp ~/dotfiles/templates/nodegit .gitignore"
 
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
