@@ -50,11 +50,13 @@ source $ZSH/oh-my-zsh.sh
 
 # For a full list of active aliases, run `alias`.
 
-# Productivity
 alias sml="/usr/local/Cellar/smlnj/110.80/bin/sml"
-alias ntree="tree -I node_modules"
 alias sourceme="source ~/.zshrc"
 alias notesdrive="cp -r ~/dotfiles/notes ~/Google\ Drive"
+
+# Node
+alias nodetree="tree -I node_modules"
+alias nodeglobal="npm ls -g --depth=0"
 
 # Github
 alias Gorigin="git remote show origin"
