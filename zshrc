@@ -60,6 +60,7 @@ alias nodeglobal="npm ls -g --depth=0"
 
 # Github
 alias Gorigin="git remote show origin"
+alias Gremote="git remote -v"
 
 # Templates
 alias tmplHTML="cp ~/dotfiles/templates/index.html ."
