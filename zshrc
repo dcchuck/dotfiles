@@ -67,6 +67,10 @@ alias tmplHTML="cp ~/dotfiles/templates/index.html ."
 alias tmplICO="cp ~/dotfiles/templates/favicon.ico ."
 alias tmplGIT="cp ~/dotfiles/templates/nodegit .gitignore"
 
+# OpenFin
+alias OFstable="curl -s https://cdn.openfin.co/release/runtime/stable | grep ."
+alias OFbeta="curl -s https://cdn.openfin.co/release/runtime/beta | grep ."
+
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 eval "$(rbenv init -)"
