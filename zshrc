@@ -52,6 +52,8 @@ source $ZSH/oh-my-zsh.sh
 
 alias sml="/usr/local/Cellar/smlnj/110.80/bin/sml"
 alias sourceme="source ~/.zshrc"
+alias winhome="cd /Volumes/C/Users/Chuck"
+alias vim="mvim -v"
 alias notesdrive="cp -r ~/dotfiles/notes ~/Google\ Drive"
 
 # Node
@@ -66,10 +68,13 @@ alias Gremote="git remote -v"
 alias tmplHTML="cp ~/dotfiles/templates/index.html ."
 alias tmplICO="cp ~/dotfiles/templates/favicon.ico ."
 alias tmplGIT="cp ~/dotfiles/templates/nodegit .gitignore"
+alias tmplTYPE="cp -r ~/dotfiles/templates/Typescript/. ."
 
 # OpenFin
 alias OFstable="curl -s https://cdn.openfin.co/release/runtime/stable | grep ."
 alias OFbeta="curl -s https://cdn.openfin.co/release/runtime/beta | grep ."
+alias OFvanilla="cp -r ~/dotfiles/templates/OpenFin/vanilla/. ."
+alias OFreact="cp -r ~/dotfiles/templates/OpenFin/react/. ."
 
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"

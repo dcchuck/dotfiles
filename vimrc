@@ -13,6 +13,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-syntastic/syntastic'
   Plug 'jiangmiao/auto-pairs'
   Plug 'ervandew/supertab'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
 
@@ -24,7 +26,7 @@ colorscheme PaperColor
 set hlsearch
 
 set number
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set clipboard=unnamed
 set colorcolumn=81
 
@@ -77,7 +79,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_jshint_args = '--config ~/dotfiles/configs/.jshintrc'
+let g:syntastic_typescript_checkers = ['tslint']
+let g:syntastic_typescript_tslint_args = "--config ~/dotfiles/configs/tslint.json"
 
 "Spellcheck in markdown files
 autocmd BufRead,BufNewFile *.md setlocal spell
@@ -86,9 +91,6 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 set complete+=kspell
 autocmd BufRead,BufNewFile *.md imap <Tab> <C-P>
 autocmd BufRead,BufNewFile *.md setlocal spell
-
-" Native tab complete for javascript files seems to not support ES6 syntax
-" autocmd BufRead,BufNewFile *.js imap <Tab> <C-X><C-O>
 
 "Leader Mappings
 nmap <expr> <leader> nr2char(getchar()).'gt'
@@ -100,3 +102,4 @@ nmap <leader>W :wq<cr>
 nmap <leader>Q :qa<cr>
 nmap <leader>S :SyntasticReset<cr>
 nmap <leader>H :SyntasticToggleMode<cr>
+nmap <leader>' cs"'

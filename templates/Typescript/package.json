@@ -1,0 +1,21 @@
+{
+  "name": "typescript-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint-ts && npm run build-ts && mocha out/test",
+    "build-ts": "tsc",
+    "lint-ts": "tslint -c tslint.json --project tsconfig.json -r node_modules/tslint-microsoft-contrib"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^7.0.18",
+    "mocha": "^3.3.0",
+    "tslint": "^4.5.1",
+    "tslint-microsoft-contrib": "^4.0.1",
+    "typescript": "^2.3.2"
+  }
+}
