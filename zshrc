@@ -55,6 +55,7 @@ alias sourceme="source ~/.zshrc"
 alias winhome="cd /Volumes/C/Users/Chuck"
 alias vim="mvim -v"
 alias notesdrive="cp -r ~/dotfiles/notes ~/Google\ Drive"
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 # Node
 alias nodetree="tree -I node_modules"
