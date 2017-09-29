@@ -28,7 +28,7 @@ set hlsearch
 set number
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set clipboard=unnamed
-set colorcolumn=81
+set colorcolumn=141
 
 " new splits open by default underneath or to the right
 set splitbelow
