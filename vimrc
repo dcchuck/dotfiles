@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'ervandew/supertab'
   Plug 'leafgarland/typescript-vim'
   Plug 'Valloric/YouCompleteMe'
+  Plug 'vim-utils/vim-line'
 
 call plug#end()
 
@@ -25,7 +26,7 @@ colorscheme PaperColor
 " Search highlighting and toggle off
 set hlsearch
 
-set number
+set relativenumber
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set clipboard=unnamed
 set colorcolumn=141
