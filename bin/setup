@@ -23,3 +23,8 @@ if [ ! -h /usr/local/bin/tat ]; then
 	cd ~
 	echo "You now have the power of tat, courtesy of Upcase"
 fi
+
+if [ ! -h .config/nvim/init.vim ]; then
+	ln -s ~/dotfiles/init.vim .config/nvim/init.vim
+	echo "Neovim config symlink created"
+fi
