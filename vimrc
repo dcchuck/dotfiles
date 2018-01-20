@@ -16,8 +16,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   Plug 'Valloric/YouCompleteMe'
   Plug 'vim-utils/vim-line'
+  Plug 'ap/vim-css-color'
+  Plug 'alvan/vim-closetag'
+  " Plug 'ahayman/vim-nodejs-complete'
 
 call plug#end()
+
+filetype plugin on
 
 syntax enable
 set t_Co=256
@@ -26,7 +31,7 @@ colorscheme PaperColor
 " Search highlighting and toggle off
 set hlsearch
 
-set relativenumber
+set number relativenumber
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set clipboard=unnamed
 set colorcolumn=141
@@ -104,3 +109,4 @@ nmap <leader>Q :qa<cr>
 nmap <leader>S :SyntasticReset<cr>
 nmap <leader>H :SyntasticToggleMode<cr>
 nmap <leader>' cs"'
+nmap <leader>y :YcmShowDetailedDiagnostic<cr>

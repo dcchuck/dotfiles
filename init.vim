@@ -4,8 +4,49 @@ call plug#begin('~/.vim/plugged')
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'flazz/vim-colorschemes'
 	Plug 'jelera/vim-javascript-syntax'
+	Plug 'tpope/vim-commentary'
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'ervandew/supertab'
+	" requires an npm install in tern directory
+	Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+	Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+	Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+	Plug 'ap/vim-css-color'
+	Plug 'alvan/vim-closetag'
 
 call plug#end()
+
+" Enable Deoplete @ startup
+let g:deoplete#enable_at_startup = 1
+
+" https://www.gregjs.com/vim/2016/neovim-deoplete-jspc-ultisnips-and-tern-a-config-for-kickass-autocompletion/
+" No snippet completion though. Maybe one day.
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+\]
+
+set completeopt=longest,menuone,preview
+let g:deoplete#sources = {}
+let g:deoplete#sources['javascript.jsx'] = ['file', 'buffer', 'ternjs']
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent']
+
+" close the preview window when you're not using it
+let g:SuperTabClosePreviewOnPopupClose = 1
+
+" or just disable the preview entirely
+" set completeopt-=preview
+"
+" or bind :pbclose
+
+" This should let me use the local tern 
+" npm i -g tern as  well
+let $PATH=expand('<sfile>:h').'/path/to/tern_for_vim/node_modules/.bin:'.$PATH
+
+autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 colorscheme PaperColor
 

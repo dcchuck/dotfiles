@@ -54,6 +54,7 @@ alias sml="/usr/local/Cellar/smlnj/110.80/bin/sml"
 alias sourceme="source ~/.zshrc"
 alias winhome="cd /Volumes/C/Users/Chuck"
 alias vim="mvim -v"
+alias e="nvim"
 alias notesdrive="cp -r ~/dotfiles/notes ~/Google\ Drive"
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
@@ -70,6 +71,7 @@ alias tmplHTML="cp ~/dotfiles/templates/index.html ."
 alias tmplICO="cp ~/dotfiles/templates/favicon.ico ."
 alias tmplGIT="cp ~/dotfiles/templates/nodegit .gitignore"
 alias tmplTYPE="cp -r ~/dotfiles/templates/Typescript/. ."
+alias tmplTERN="cp ~/dotfiles/templates/tern-project ./.tern-project"
 
 # OpenFin
 alias OFstable="curl -s https://cdn.openfin.co/release/runtime/stable | grep ."
