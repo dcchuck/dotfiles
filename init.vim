@@ -52,7 +52,6 @@ colorscheme PaperColor
 
 " Remap leader key to space - must come 1st!
 let mapleader="\<Space>"
-" TODO -> replace with symlink and move to dotfiles
 nmap <leader>so :source ~/.config/nvim/init.vim<cr>
 
 " Enable slamming of jk or kj to escape
@@ -77,3 +76,20 @@ nmap <leader>w :w<cr>
 nmap <leader>q :q<cr>
 nmap <leader>W :wq<cr>
 nmap <leader>Q :qa<cr>
+
+" Show the cursorline & cursorline only in the active window
+augroup CursorLineOnlyInActiveWindow
+	autocmd!
+	autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+	autocmd WinLeave * setlocal nocursorline
+augroup END
+
+augroup CursorColumnOnlyInActiveWindow
+	autocmd!
+	autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn
+	autocmd WinLeave * setlocal nocursorcolumn
+augroup END
+
+" Highhlight the statusline when in insert mode
+au insertenter * hi StatusLine ctermfg=white ctermbg=red
+au insertleave * hi StatusLine ctermfg=254 ctermbg=24
