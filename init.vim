@@ -116,3 +116,7 @@ set statusline+=%1*
 set statusline+=%m
 set statusline+=%*
 set statusline+=%=%c,%l/%L\ %P
+
+hi User1 ctermfg=white ctermbg=red
+au insertenter * hi StatusLine ctermfg=white ctermbg=red
+au insertleave * hi StatusLine ctermfg=254 ctermbg=24
