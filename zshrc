@@ -72,6 +72,7 @@ alias tmplICO="cp ~/dotfiles/templates/favicon.ico ."
 alias tmplGIT="cp ~/dotfiles/templates/nodegit .gitignore"
 alias tmplTYPE="cp -r ~/dotfiles/templates/Typescript/. ."
 alias tmplTERN="cp ~/dotfiles/templates/tern-project ./.tern-project"
+alias tmplWP="cp ~/dotfiles/templates/webpack3 ./webpack.config.js"
 
 # OpenFin
 alias OFstable="curl -s https://cdn.openfin.co/release/runtime/stable | grep ."

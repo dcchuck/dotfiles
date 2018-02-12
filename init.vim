@@ -13,6 +13,13 @@ call plug#begin('~/.vim/plugged')
 	Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 	Plug 'ap/vim-css-color'
 	Plug 'alvan/vim-closetag'
+	Plug 'tpope/vim-surround'
+	Plug 'tpope/vim-repeat'
+	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-fugitive'
+	Plug 'dcchuck/tabline.vim'
+	Plug 'airblade/vim-gitgutter'
+	Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
@@ -72,10 +79,16 @@ set list
 " Remap Leader
 
 " Leader Mappings
+nmap <expr> <leader> nr2char(getchar()).'gt'
+nmap <leader>' cs"'
 nmap <leader>w :w<cr>
 nmap <leader>q :q<cr>
 nmap <leader>W :wq<cr>
 nmap <leader>Q :qa<cr>
+nmap <leader>h :nohlsearch<cr>
+
+" node specific
+nmap <leader>p :e package.json<cr>
 
 " Show the cursorline & cursorline only in the active window
 augroup CursorLineOnlyInActiveWindow
@@ -93,3 +106,13 @@ augroup END
 " Highhlight the statusline when in insert mode
 au insertenter * hi StatusLine ctermfg=white ctermbg=red
 au insertleave * hi StatusLine ctermfg=254 ctermbg=24
+
+" TODO - autoformat JSON file
+
+" TODO
+set laststatus=2
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%r%y
+set statusline+=%1*
+set statusline+=%m
+set statusline+=%*
+set statusline+=%=%c,%l/%L\ %P
