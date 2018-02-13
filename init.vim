@@ -103,13 +103,8 @@ augroup CursorColumnOnlyInActiveWindow
 	autocmd WinLeave * setlocal nocursorcolumn
 augroup END
 
-" Highhlight the statusline when in insert mode
-au insertenter * hi StatusLine ctermfg=white ctermbg=red
-au insertleave * hi StatusLine ctermfg=254 ctermbg=24
-
 " TODO - autoformat JSON file
 
-" TODO
 set laststatus=2
 set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%r%y
 set statusline+=%1*
@@ -120,3 +115,5 @@ set statusline+=%=%c,%l/%L\ %P
 hi User1 ctermfg=white ctermbg=red
 au insertenter * hi StatusLine ctermfg=white ctermbg=red
 au insertleave * hi StatusLine ctermfg=254 ctermbg=24
+
+set colorcolumn=141
