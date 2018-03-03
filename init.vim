@@ -20,6 +20,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'dcchuck/tabline.vim'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'ctrlpvim/ctrlp.vim'
+	Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
@@ -86,6 +87,7 @@ nmap <leader>q :q<cr>
 nmap <leader>W :wq<cr>
 nmap <leader>Q :qa<cr>
 nmap <leader>h :nohlsearch<cr>
+nmap <leader>J :%!python -m json.tool<cr>
 
 " node specific
 nmap <leader>p :e package.json<cr>
@@ -117,3 +119,5 @@ au insertenter * hi StatusLine ctermfg=white ctermbg=red
 au insertleave * hi StatusLine ctermfg=254 ctermbg=24
 
 set colorcolumn=141
+" Select with yank & put to keyboard twitter.com/searls
+nnoremap <leader>cc :call system('pbcopy', @0)<CR>
