@@ -79,6 +79,7 @@ alias OFstable="curl -s https://cdn.openfin.co/release/runtime/stable | grep ."
 alias OFbeta="curl -s https://cdn.openfin.co/release/runtime/beta | grep ."
 alias OFvanilla="cp -r ~/dotfiles/templates/OpenFin/vanilla/. ."
 alias OFreact="cp -r ~/dotfiles/templates/OpenFin/react/. ."
+alias OFreadme="cp ~/dotfiles/templates/OpenFin/README.md ."
 
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
