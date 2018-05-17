@@ -21,8 +21,13 @@ call plug#begin('~/.vim/plugged')
 	Plug 'airblade/vim-gitgutter'
 	Plug 'ctrlpvim/ctrlp.vim'
 	Plug 'leafgarland/typescript-vim'
+	Plug 'tomlion/vim-solidity'
+	Plug 'JamshedVesuna/vim-markdown-preview'
 
 call plug#end()
+
+let vim_markdown_preview_hotkey='<C-m>'
+let vim_markdown_preview_github=1
 
 " Enable Deoplete @ startup
 let g:deoplete#enable_at_startup = 1
