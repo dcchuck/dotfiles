@@ -29,7 +29,7 @@ if [ ! -h /usr/local/bin/tat ]; then
 	echo "You now have the power of tat, courtesy of Upcase"
 fi
 
-if [ ! -h .config/nvim/init.vim ]; then
-	ln -s ~/dotfiles/init.vim .config/nvim/init.vim
-	echo "Neovim config symlink created"
+if [ ! -h .zshrc ]; then
+	ln -s ~/dotfiles/zshrc .zshrc
+	echo "ZSHRC symlink created"
 fi
