@@ -50,11 +50,11 @@ source $ZSH/oh-my-zsh.sh
 
 # For a full list of active aliases, run `alias`.
 
-alias sml="/usr/local/Cellar/smlnj/110.80/bin/sml"
+alias sml="/usr/local/Cellar/smlnj/110.83/bin/sml"
 alias sourceme="source ~/.zshrc"
 alias winhome="cd /Volumes/C/Users/Chuck"
-alias vim="mvim -v"
-alias e="nvim"
+#alias vim="mvim -v"
+alias e="vim"
 alias notesdrive="cp -r ~/dotfiles/notes ~/Google\ Drive"
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
@@ -81,9 +81,9 @@ alias OFvanilla="cp -r ~/dotfiles/templates/OpenFin/vanilla/. ."
 alias OFreact="cp -r ~/dotfiles/templates/OpenFin/react/. ."
 alias OFreadme="cp ~/dotfiles/templates/OpenFin/README.md ."
 
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+export PATH="$PATH:/path/to/depot_tools"
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 
-export PATH="$PATH:/path/to/depot_tools"
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
