@@ -5,24 +5,24 @@
 """""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-  Plug 'christoomey/vim-tmux-navigator'
+	Plug 'christoomey/vim-tmux-navigator'
 
-  Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-surround'
+	Plug 'tpope/vim-commentary'
 
 	Plug 'jiangmiao/auto-pairs'
 
 	Plug 'ervandew/supertab'
-  Plug 'ctrlpvim/ctrlp.vim'
+	Plug 'ctrlpvim/ctrlp.vim'
 
 	Plug 'albertorestifo/github.vim'
 
-  Plug 'dcchuck/tabline.vim'
+	Plug 'dcchuck/tabline.vim'
 
-  Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+	Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 	Plug 'Quramy/tsuquyomi', { 'for': 'typescript'  }
 
-  Plug 'elzr/vim-json'
+	Plug 'elzr/vim-json'
 	Plug 'alvan/vim-closetag'
 
 call plug#end()
