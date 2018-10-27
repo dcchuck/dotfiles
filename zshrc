@@ -82,8 +82,11 @@ alias OFreact="cp -r ~/dotfiles/templates/OpenFin/react/. ."
 alias OFreadme="cp ~/dotfiles/templates/OpenFin/README.md ."
 
 export PATH="$PATH:/path/to/depot_tools"
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
+
+export ANDROID_HOME="/Users/chuck/Library/Android/sdk"  

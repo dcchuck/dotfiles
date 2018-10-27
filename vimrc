@@ -5,19 +5,25 @@
 """""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-  " Staples
-  Plug 'tpope/vim-surround'
   Plug 'christoomey/vim-tmux-navigator'
+
+  Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
 
-  " Experimenting
-  Plug 'leafgarland/typescript-vim'
-  Plug 'elzr/vim-json'
 	Plug 'jiangmiao/auto-pairs'
+
 	Plug 'ervandew/supertab'
-  Plug 'dcchuck/tabline.vim'
-	Plug 'albertorestifo/github.vim'
   Plug 'ctrlpvim/ctrlp.vim'
+
+	Plug 'albertorestifo/github.vim'
+
+  Plug 'dcchuck/tabline.vim'
+
+  Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+	Plug 'Quramy/tsuquyomi', { 'for': 'typescript'  }
+
+  Plug 'elzr/vim-json'
+	Plug 'alvan/vim-closetag'
 
 call plug#end()
 
@@ -99,4 +105,12 @@ au insertleave * hi StatusLine ctermfg=34 ctermbg=15
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
-set listchars=trail:~
+set list listchars=trail:~,tab:·»,
+
+"""""""""""""""""""""""""""""""""
+"																"
+"	Convenience										"
+"																"
+"""""""""""""""""""""""""""""""""
+
+nmap <leader>C i//tslint:disable-next-line:no-console<esc>
