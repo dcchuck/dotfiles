@@ -27,12 +27,6 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
-
-"""""""""""""""""""""""""""""""""
-"																"
-"	Plugin Settings 							"
-"																"
-"""""""""""""""""""""""""""""""""
 " leafgarland/typescript-vim
 " disable default indentation settings
 " let g:typescript_indent_disable = 1
@@ -52,6 +46,18 @@ set number relativenumber
 colorscheme github
 set colorcolumn=81
 set tabstop=2 softtabstop=2 shiftwidth=2
+set backspace=2
+
+augroup CursorLineOnlyInActiveWindow
+	autocmd!
+	autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+	autocmd WinLeave * setlocal nocursorline
+augroup END
+
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+
+set list listchars=trail:~,tab:·»,
 
 
 """""""""""""""""""""""""""""""""
@@ -76,8 +82,9 @@ nmap <leader>W :wq<cr>
 nmap <leader>Q :qa<cr>
 nmap <leader>so :source $MYVIMRC<cr>
 nmap <leader>T :! npx tsc --project .<cr>
-" TODO: This should be part of the tab plugin I use.
+
 nmap <expr> <leader> nr2char(getchar()).'gt'
+
 
 """""""""""""""""""""""""""""""""
 "																"
@@ -85,27 +92,22 @@ nmap <expr> <leader> nr2char(getchar()).'gt'
 "																"
 """""""""""""""""""""""""""""""""
 set laststatus=2
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%r%y
-set statusline+=%1*
-set statusline+=%m
-set statusline+=%*
-set statusline+=%=%c,%l/%L\ %P
+" File file path, help & read only flags
+set statusline=%F%h%r
+" Modifier flag with custom highlight group
+set statusline+=%1*%m%*
+hi User1 ctermfg=15 ctermbg=160
 
+" Split Statusline - left and right justified
+set statusline+=%=
 
-augroup CursorLineOnlyInActiveWindow
-	autocmd!
-	autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-	autocmd WinLeave * setlocal nocursorline
-augroup END
+" Column,line/Lines
+set statusline+=%c,%l/%L
 
 hi StatusLine ctermfg=34 ctermbg=15
 au insertenter * hi StatusLine ctermfg=160 ctermbg=15
 au insertleave * hi StatusLine ctermfg=34 ctermbg=15
 
-" automatically rebalance windows on vim resize
-autocmd VimResized * :wincmd =
-
-set list listchars=trail:~,tab:·»,
 
 """""""""""""""""""""""""""""""""
 "																"
