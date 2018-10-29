@@ -3,6 +3,8 @@ export ZSH=/Users/chuck/.oh-my-zsh
 ZSH_THEME="friskChuck"
 CASE_SENSITIVE="true"
 
+plugins=(git)
+
 source $ZSH/oh-my-zsh.sh
 
 alias sml="/usr/local/Cellar/smlnj/110.83/bin/sml"
