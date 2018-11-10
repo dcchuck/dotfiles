@@ -37,4 +37,4 @@ eval "$(pyenv init -)"
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
-export ANDROID_HOME="/Users/chuck/Library/Android/sdk"  
+export ANDROID_HOME="/Users/chuck/Library/Android/sdk"

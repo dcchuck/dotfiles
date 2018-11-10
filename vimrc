@@ -45,7 +45,7 @@ syntax enable
 set number relativenumber
 colorscheme github
 set colorcolumn=81
-set tabstop=2 softtabstop=2 shiftwidth=2
+set expandtab tabstop=2 softtabstop=2 shiftwidth=2
 set backspace=2
 
 augroup CursorLineOnlyInActiveWindow
