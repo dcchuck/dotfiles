@@ -1,29 +1,45 @@
 """""""""""""""""""""""""""""""""
-"																"
-"	Plugins												"
-"																"
+"                               "
+" Plugins                       "
+"                               "
 """""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-	Plug 'christoomey/vim-tmux-navigator'
+  Plug 'christoomey/vim-tmux-navigator'
 
-	Plug 'tpope/vim-surround'
-	Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-surround'
 
-	Plug 'jiangmiao/auto-pairs'
+  Plug 'jiangmiao/auto-pairs'
 
-	Plug 'ervandew/supertab'
-	Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'ervandew/supertab'
+  Plug 'ctrlpvim/ctrlp.vim'
 
-	Plug 'albertorestifo/github.vim'
+  Plug 'albertorestifo/github.vim'
 
-	Plug 'dcchuck/tabline.vim'
+  Plug 'dcchuck/tabline.vim'
 
-	Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-	Plug 'Quramy/tsuquyomi', { 'for': 'typescript'  }
+  Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+  Plug 'Quramy/tsuquyomi', { 'for': 'typescript'  }
 
-	Plug 'elzr/vim-json'
-	Plug 'alvan/vim-closetag'
+  Plug 'elzr/vim-json'
+  Plug 'alvan/vim-closetag'
+
+  " Track the engine.
+  Plug 'SirVer/ultisnips'
+
+  " Snippets are separated from the engine. Add this if you want them:
+  Plug 'honza/vim-snippets'
+
+  "" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsJumpForwardTrigger="<c-b>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+  " If you want :UltiSnipsEdit to split your window.
+  " let g:UltiSnipsEditSplit="vertical"
+  " "
 
 call plug#end()
 
@@ -37,9 +53,9 @@ let g:ctrlp_use_caching = 0
 
 
 """""""""""""""""""""""""""""""""
-"																"
-"	Visuals					 							"
-"																"
+"                               "
+" Visuals                       "
+"                               "
 """""""""""""""""""""""""""""""""
 syntax enable
 set number relativenumber
@@ -49,9 +65,9 @@ set expandtab tabstop=2 softtabstop=2 shiftwidth=2
 set backspace=2
 
 augroup CursorLineOnlyInActiveWindow
-	autocmd!
-	autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-	autocmd WinLeave * setlocal nocursorline
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
 augroup END
 
 " automatically rebalance windows on vim resize
@@ -61,18 +77,18 @@ set list listchars=trail:~,tab:·»,
 
 
 """""""""""""""""""""""""""""""""
-"																"
-"	Insert Mode Remaps	 					"
-"																"
+"                               "
+" Insert Mode Remaps            "
+"                               "
 """""""""""""""""""""""""""""""""
 imap jk <esc>
 imap kj <esc>
 
 
 """""""""""""""""""""""""""""""""
-"																"
-"	Leader Mappings	 							"
-"																"
+"                               "
+" Leader Mappings               "
+"                               "
 """""""""""""""""""""""""""""""""
 let mapleader = "\<Space>"
 nmap <leader>h :nohlsearch<cr>
@@ -87,9 +103,9 @@ nmap <expr> <leader> nr2char(getchar()).'gt'
 
 
 """""""""""""""""""""""""""""""""
-"																"
-"	Status Line										"
-"																"
+"                               "
+" Status Line                   "
+"                               "
 """""""""""""""""""""""""""""""""
 set laststatus=2
 " File file path, help & read only flags
@@ -110,9 +126,9 @@ au insertleave * hi StatusLine ctermfg=34 ctermbg=15
 
 
 """""""""""""""""""""""""""""""""
-"																"
-"	Convenience										"
-"																"
+"                               "
+" Convenience                   "
+"                               "
 """""""""""""""""""""""""""""""""
 
 nmap <leader>C i//tslint:disable-next-line:no-console<esc>
