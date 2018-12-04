@@ -32,7 +32,7 @@ call plug#begin('~/.vim/plugged')
   " Snippets are separated from the engine. Add this if you want them:
   Plug 'honza/vim-snippets'
 
-  "" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+  " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
   let g:UltiSnipsExpandTrigger="<tab>"
   let g:UltiSnipsJumpForwardTrigger="<c-b>"
   let g:UltiSnipsJumpBackwardTrigger="<c-z>"
@@ -120,9 +120,9 @@ set statusline+=%=
 " Column,line/Lines
 set statusline+=%c,%l/%L
 
-hi StatusLine ctermfg=34 ctermbg=15
+hi StatusLine ctermfg=22 ctermbg=15
 au insertenter * hi StatusLine ctermfg=160 ctermbg=15
-au insertleave * hi StatusLine ctermfg=34 ctermbg=15
+au insertleave * hi StatusLine ctermfg=22 ctermbg=15
 
 
 """""""""""""""""""""""""""""""""
