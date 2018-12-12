@@ -40,7 +40,7 @@ call plug#begin('~/.vim/plugged')
   " If you want :UltiSnipsEdit to split your window.
   " let g:UltiSnipsEditSplit="vertical"
   " "
-  
+
   Plug 'heavenshell/vim-tslint'
 
 call plug#end()
@@ -77,7 +77,6 @@ augroup tslint
   endfunction
 
   autocmd BufWritePost *.ts,*.tsx silent! call s:ts_quickfix()
-  autocmd InsertLeave *.ts,*.tsx silent! call s:ts_quickfix()
 augroup END
 
 """""""""""""""""""""""""""""""""
