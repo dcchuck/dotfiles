@@ -10,6 +10,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
+  "
+  Plug 'tpope/vim-vinegar'
 
   Plug 'jiangmiao/auto-pairs'
 
@@ -27,15 +29,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'alvan/vim-closetag'
 
   " Track the engine.
-  Plug 'SirVer/ultisnips'
+  " Plug 'SirVer/ultisnips'
 
   " Snippets are separated from the engine. Add this if you want them:
-  Plug 'honza/vim-snippets'
+  " Plug 'honza/vim-snippets'
 
   " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-  let g:UltiSnipsExpandTrigger="<tab>"
-  let g:UltiSnipsJumpForwardTrigger="<c-b>"
-  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+  " let g:UltiSnipsExpandTrigger="<tab>"
+  " let g:UltiSnipsJumpForwardTrigger="<c-b>"
+  " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
   " If you want :UltiSnipsEdit to split your window.
   " let g:UltiSnipsEditSplit="vertical"
@@ -159,3 +161,6 @@ au insertleave * hi StatusLine ctermfg=22 ctermbg=15
 """""""""""""""""""""""""""""""""
 
 nmap <leader>C i//tslint:disable-next-line:no-console<esc>
+
+" recursively search the current directory for the word under the cursor
+nmap <leader>f :grep -r <cword> *<CR>
