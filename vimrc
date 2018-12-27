@@ -28,28 +28,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'elzr/vim-json'
   Plug 'alvan/vim-closetag'
 
-  " Track the engine.
-  " Plug 'SirVer/ultisnips'
-
-  " Snippets are separated from the engine. Add this if you want them:
-  " Plug 'honza/vim-snippets'
-
-  " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-  " let g:UltiSnipsExpandTrigger="<tab>"
-  " let g:UltiSnipsJumpForwardTrigger="<c-b>"
-  " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-  " If you want :UltiSnipsEdit to split your window.
-  " let g:UltiSnipsEditSplit="vertical"
-  " "
-
   Plug 'heavenshell/vim-tslint'
 
 call plug#end()
-
-" leafgarland/typescript-vim
-" disable default indentation settings
-" let g:typescript_indent_disable = 1
 
 " Make CtrlP use ag for listing the files. Way faster and no useless files.
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
@@ -57,7 +38,6 @@ let g:ctrlp_use_caching = 0
 
 " auto execute TSLint on save
 autocmd BufWritePost *.ts,*.tsx call tslint#run('a', win_getid())
-" :TslintFix should autofix
 
 augroup tslint
   function! s:typescript_after(ch, msg)
