@@ -6,20 +6,16 @@
 call plug#begin('~/.vim/plugged')
 
   Plug 'christoomey/vim-tmux-navigator'
-
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
-  "
   Plug 'tpope/vim-vinegar'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'albertorestifo/github.vim'
 
   Plug 'jiangmiao/auto-pairs'
 
   Plug 'ervandew/supertab'
-  Plug 'ctrlpvim/ctrlp.vim'
-
-  Plug 'albertorestifo/github.vim'
-
   Plug 'dcchuck/tabline.vim'
 
   Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
@@ -107,8 +103,13 @@ nmap <leader>W :wq<cr>
 nmap <leader>Q :qa<cr>
 nmap <leader>so :source $MYVIMRC<cr>
 nmap <leader>T :! npx tsc --project .<cr>
-
+nmap <leader>P :w !pbcopy<cr><cr>
+vnoremap <C-c> :w !pbcopy<CR><CR>
+noremap <C-v> :r !pbpaste<CR><CR>
 nmap <expr> <leader> nr2char(getchar()).'gt'
+
+" recursively search the current directory for the word under the cursor
+nmap <leader>f :grep -r <cword> *<CR>
 
 
 """""""""""""""""""""""""""""""""
@@ -139,8 +140,4 @@ au insertleave * hi StatusLine ctermfg=22 ctermbg=15
 " Convenience                   "
 "                               "
 """""""""""""""""""""""""""""""""
-
-nmap <leader>C i//tslint:disable-next-line:no-console<esc>
-
-" recursively search the current directory for the word under the cursor
-nmap <leader>f :grep -r <cword> *<CR>
+autocmd QuickFixCmdPost *grep* cwindow
