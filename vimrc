@@ -5,32 +5,44 @@
 """""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-  Plug 'christoomey/vim-tmux-navigator'
-  Plug 'tpope/vim-commentary'
+  " Git
   Plug 'tpope/vim-fugitive'
+
+  " Word Object Manipulation
+  Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
+
+  " Navigation
+  Plug 'christoomey/vim-tmux-navigator'
+  " Plug 'ctrlpvim/ctrlp.vim'
+  " brew install fzf
+  Plug '/usr/local/opt/fzf'
+  Plug 'dcchuck/tabline.vim'
   Plug 'tpope/vim-vinegar'
-  Plug 'ctrlpvim/ctrlp.vim'
+
+  " Colorscheme
   Plug 'albertorestifo/github.vim'
 
+  " Autocompletion
   Plug 'jiangmiao/auto-pairs'
-
   Plug 'ervandew/supertab'
-  Plug 'dcchuck/tabline.vim'
-
-  Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-  Plug 'Quramy/tsuquyomi', { 'for': 'typescript'  }
-
-  Plug 'elzr/vim-json'
   Plug 'alvan/vim-closetag'
 
+  " Typescript
+  Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+  Plug 'Quramy/tsuquyomi', { 'for': 'typescript'  }
   Plug 'heavenshell/vim-tslint'
+
+  " Convenience
+  Plug 'elzr/vim-json'
 
 call plug#end()
 
+" Add fzf
+
 " Make CtrlP use ag for listing the files. Way faster and no useless files.
-let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
-let g:ctrlp_use_caching = 0
+" let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+" let g:ctrlp_use_caching = 1
 
 " auto execute TSLint on save
 autocmd BufWritePost *.ts,*.tsx call tslint#run('a', win_getid())
@@ -104,12 +116,19 @@ nmap <leader>Q :qa<cr>
 nmap <leader>so :source $MYVIMRC<cr>
 nmap <leader>T :! npx tsc --project .<cr>
 nmap <leader>P :w !pbcopy<cr><cr>
+
+" Internet says this is better...
+nmap <C-p> :FZF<cr>
+
+" Copy and paste to the clipboard
 vnoremap <C-c> :w !pbcopy<CR><CR>
 noremap <C-v> :r !pbpaste<CR><CR>
+
+" Tab navigation
 nmap <expr> <leader> nr2char(getchar()).'gt'
 
 " recursively search the current directory for the word under the cursor
-nmap <leader>f :grep -r <cword> *<CR>
+nmap <leader>f :grep -r --exclude-dir=node_modules <cword> *<CR>
 
 
 """""""""""""""""""""""""""""""""

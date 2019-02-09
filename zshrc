@@ -17,10 +17,6 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias nodetree="tree -I node_modules"
 alias nodeglobal="npm ls -g --depth=0"
 
-# Github
-alias Gorigin="git remote show origin"
-alias Gremote="git remote -v"
-
 # Vagrant
 alias vhalt="vagrant halt"
 alias vup="vagrant up"
