@@ -21,6 +21,13 @@ alias nodeglobal="npm ls -g --depth=0"
 alias Gorigin="git remote show origin"
 alias Gremote="git remote -v"
 
+# Vagrant
+alias vhalt="vagrant halt"
+alias vup="vagrant up"
+alias vstatus="vagrant global-status"
+
+alias vrosh="~/rosh/emqb/bin/setup"
+
 # Templates
 alias tmplHTML="cp ~/dotfiles/templates/index.html ."
 alias tmplICO="cp ~/dotfiles/templates/favicon.ico ."
@@ -32,9 +39,9 @@ alias tmplWP3="cp ~/dotfiles/templates/webpack3 ./webpack.config.js"
 export PATH="$PATH:/path/to/depot_tools"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-eval "$(pyenv init -)"
 
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
 export ANDROID_HOME="/Users/chuck/Library/Android/sdk"
+export PATH="/usr/local/opt/libxml2/bin:$PATH"
