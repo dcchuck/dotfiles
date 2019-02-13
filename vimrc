@@ -14,8 +14,6 @@ call plug#begin('~/.vim/plugged')
 
   " Navigation
   Plug 'christoomey/vim-tmux-navigator'
-  " Plug 'ctrlpvim/ctrlp.vim'
-  " brew install fzf
   Plug '/usr/local/opt/fzf'
   Plug 'dcchuck/tabline.vim'
   Plug 'tpope/vim-vinegar'
@@ -37,12 +35,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'elzr/vim-json'
 
 call plug#end()
-
-" Add fzf
-
-" Make CtrlP use ag for listing the files. Way faster and no useless files.
-" let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
-" let g:ctrlp_use_caching = 1
 
 " auto execute TSLint on save
 autocmd BufWritePost *.ts,*.tsx call tslint#run('a', win_getid())
@@ -69,6 +61,9 @@ augroup tslint
   autocmd BufWritePost *.ts,*.tsx silent! call s:ts_quickfix()
 augroup END
 
+set expandtab tabstop=2 softtabstop=2 shiftwidth=2
+set backspace=2
+
 """""""""""""""""""""""""""""""""
 "                               "
 " Visuals                       "
@@ -78,8 +73,6 @@ syntax enable
 set number relativenumber
 colorscheme github
 set colorcolumn=81
-set expandtab tabstop=2 softtabstop=2 shiftwidth=2
-set backspace=2
 
 augroup CursorLineOnlyInActiveWindow
   autocmd!
