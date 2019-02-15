@@ -22,6 +22,9 @@ alias vhalt="vagrant halt"
 alias vup="vagrant up"
 alias vstatus="vagrant global-status"
 
+# Docker
+alias dcom="docker-compose"
+
 alias vrosh="~/rosh/emqb/bin/setup"
 
 # Templates
@@ -41,3 +44,4 @@ export NVM_DIR="$HOME/.nvm"
 
 export ANDROID_HOME="/Users/chuck/Library/Android/sdk"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
+
