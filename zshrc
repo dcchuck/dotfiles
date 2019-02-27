@@ -45,3 +45,4 @@ export NVM_DIR="$HOME/.nvm"
 export ANDROID_HOME="/Users/chuck/Library/Android/sdk"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/

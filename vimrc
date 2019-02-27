@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
   Plug '/usr/local/opt/fzf'
   Plug 'dcchuck/tabline.vim'
   Plug 'tpope/vim-vinegar'
+  Plug 'tpope/vim-dispatch'
 
   " Colorscheme
   Plug 'albertorestifo/github.vim'
@@ -25,6 +26,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'jiangmiao/auto-pairs'
   Plug 'ervandew/supertab'
   Plug 'alvan/vim-closetag'
+  Plug 'tpope/vim-endwise'
 
   " Typescript
   Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
@@ -144,3 +146,6 @@ au insertleave * hi StatusLine ctermfg=22 ctermbg=15
 "                               "
 """""""""""""""""""""""""""""""""
 autocmd QuickFixCmdPost *grep* cwindow
+
+" LEAVE!
+imap <C-l> <esc>
