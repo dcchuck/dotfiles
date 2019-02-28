@@ -17,11 +17,6 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias nodetree="tree -I node_modules"
 alias nodeglobal="npm ls -g --depth=0"
 
-# Vagrant
-alias vhalt="vagrant halt"
-alias vup="vagrant up"
-alias vstatus="vagrant global-status"
-
 # Docker
 alias dcom="docker-compose"
 
