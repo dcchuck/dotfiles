@@ -14,10 +14,9 @@ call plug#begin('~/.vim/plugged')
 
   " Navigation
   Plug 'christoomey/vim-tmux-navigator'
-  Plug '/usr/local/opt/fzf'
+  Plug '~/.fzf'
   Plug 'dcchuck/tabline.vim'
   Plug 'tpope/vim-vinegar'
-  Plug 'tpope/vim-dispatch'
 
   " Colorscheme
   Plug 'albertorestifo/github.vim'
@@ -26,7 +25,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'jiangmiao/auto-pairs'
   Plug 'ervandew/supertab'
   Plug 'alvan/vim-closetag'
-  Plug 'tpope/vim-endwise'
 
   " Typescript
   Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
@@ -90,6 +88,15 @@ set list listchars=trail:~,tab:·»,
 
 """""""""""""""""""""""""""""""""
 "                               "
+" Insert Mode Remaps            "
+"                               "
+"""""""""""""""""""""""""""""""""
+imap jk <esc>
+imap kj <esc>
+
+
+"""""""""""""""""""""""""""""""""
+"                               "
 " Leader Mappings               "
 "                               "
 """""""""""""""""""""""""""""""""
@@ -146,6 +153,3 @@ au insertleave * hi StatusLine ctermfg=22 ctermbg=15
 "                               "
 """""""""""""""""""""""""""""""""
 autocmd QuickFixCmdPost *grep* cwindow
-
-" LEAVE!
-imap <C-l> <esc>
