@@ -91,8 +91,7 @@ set list listchars=trail:~,tab:·»,
 " Insert Mode Remaps            "
 "                               "
 """""""""""""""""""""""""""""""""
-imap jk <esc>
-imap kj <esc>
+imap <C-l> <esc>
 
 
 """""""""""""""""""""""""""""""""
@@ -153,3 +152,4 @@ au insertleave * hi StatusLine ctermfg=22 ctermbg=15
 "                               "
 """""""""""""""""""""""""""""""""
 autocmd QuickFixCmdPost *grep* cwindow
+
