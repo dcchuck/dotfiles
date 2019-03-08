@@ -25,7 +25,15 @@ alias tmplTYPE="cp -r ~/dotfiles/templates/Typescript/. ."
 alias tmplTERN="cp ~/dotfiles/templates/tern-project ./.tern-project"
 alias tmplWP3="cp ~/dotfiles/templates/webpack3 ./webpack.config.js"
 
+# RBENV
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
