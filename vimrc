@@ -1,4 +1,6 @@
-"""""""""""""""""""""""""""""""""
+set nocompatible
+
+""""""""""""""""""""""""""""""""
 "                               "
 " Plugins                       "
 "                               "
@@ -36,6 +38,7 @@ call plug#begin('~/.vim/plugged')
   " Convenience
   Plug 'elzr/vim-json'
 
+  Plug 'tpope/vim-rails'
 call plug#end()
 
 " auto execute TSLint on save
@@ -76,12 +79,6 @@ set number relativenumber
 colorscheme github
 set colorcolumn=81
 
-augroup CursorLineOnlyInActiveWindow
-  autocmd!
-  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-  autocmd WinLeave * setlocal nocursorline
-augroup END
-
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
@@ -103,18 +100,29 @@ nmap <leader>so :source $MYVIMRC<cr>
 nmap <leader>T :! npx tsc --project .<cr>
 nmap <leader>P :w !pbcopy<cr><cr>
 
+nmap <leader>o o<Esc>k
+nmap <leader>O O<Esc>j
+
+" Remove all trailing whitespace
+nmap <leader>$ :%s/\s\+$//e<CR>
+
 " Internet says this is better...
 nmap <C-p> :FZF<cr>
+
+" TmuxNavigator Custom Controls
+" nmap <C-k> :TmuxNavigateUp<CR>
+" nmap <C-j> :TmuxNavigateDown<CR>
 
 " Copy and paste to the clipboard
 vnoremap <C-c> :w !pbcopy<CR><CR>
 noremap <C-v> :r !pbpaste<CR><CR>
 
+" recursively search the current directory for the word under the cursor
+nmap <leader>f :grep -r --exclude-dir=node_modules <cword> *<CR>
+
 " Tab navigation
 nmap <expr> <leader> nr2char(getchar()).'gt'
 
-" recursively search the current directory for the word under the cursor
-nmap <leader>f :grep -r --exclude-dir=node_modules <cword> *<CR>
 
 
 """""""""""""""""""""""""""""""""
@@ -149,3 +157,4 @@ autocmd QuickFixCmdPost *grep* cwindow
 
 " LEAVE!
 imap <C-l> <esc>
+
