@@ -11,6 +11,7 @@ alias sml="/usr/local/Cellar/smlnj/110.83/bin/sml"
 alias flushdns="sudo killall -HUP mDNSResponder"
 alias sourceme="source ~/.zshrc"
 alias e="vim"
+alias o="xdg-open"
 alias tat="~/dotfiles/bin/tat"
 
 # Node
@@ -44,3 +45,8 @@ eval "$(pyenv virtualenv-init -)"
 
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Rails
+alias brails="bundle exec rails"
+alias brake="bundle exec rake"
+

@@ -107,14 +107,20 @@ nmap <leader>W :wq<cr>
 nmap <leader>Q :qa<cr>
 nmap <leader>so :source $MYVIMRC<cr>
 nmap <leader>T :! npx tsc --project .<cr>
-nmap <leader>P :w !pbcopy<cr><cr>
+
+nmap <leader>o o<Esc>k
+nmap <leader>O O<Esc>j
+
+" Remove all trailing whitespace
+nmap <leader>$ :%s/\s\+$//e<CR>
+
+
+" TmuxNavigator Custom Controls
+nmap <C-k> :TmuxNavigateUp<CR>
+nmap <C-j> :TmuxNavigateDown<CR>
 
 " Internet says this is better...
 nmap <C-p> :FZF<cr>
-
-" Copy and paste to the clipboard
-vnoremap <C-c> :w !pbcopy<CR><CR>
-noremap <C-v> :r !pbpaste<CR><CR>
 
 " Tab navigation
 nmap <expr> <leader> nr2char(getchar()).'gt'
