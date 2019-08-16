@@ -17,54 +17,31 @@ call plug#begin('~/.vim/plugged')
   " Navigation
   Plug 'christoomey/vim-tmux-navigator'
   Plug '/usr/local/opt/fzf'
+  Plug 'junegunn/fzf.vim'
   Plug 'dcchuck/tabline.vim'
   Plug 'tpope/vim-vinegar'
   Plug 'tpope/vim-dispatch'
 
-  " Colorscheme
-  Plug 'albertorestifo/github.vim'
-
   " Autocompletion
   Plug 'jiangmiao/auto-pairs'
-  Plug 'ervandew/supertab'
   Plug 'alvan/vim-closetag'
   Plug 'tpope/vim-endwise'
+  " TODO - document installed servers, automate
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " Typescript
-  Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-  Plug 'Quramy/tsuquyomi', { 'for': 'typescript'  }
-  Plug 'heavenshell/vim-tslint'
+  " Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+  Plug 'HerringtonDarkholme/yats.vim'
 
   " Convenience
   Plug 'elzr/vim-json'
 
   Plug 'tpope/vim-rails'
+
+  " Markdown
+  " Requires global installation of livedown via npm
+  Plug 'shime/vim-livedown', { 'for': 'markdown' }
 call plug#end()
-
-" auto execute TSLint on save
-autocmd BufWritePost *.ts,*.tsx call tslint#run('a', win_getid())
-
-augroup tslint
-  function! s:typescript_after(ch, msg)
-    let cnt = len(getqflist())
-    if cnt > 0
-      echomsg printf('[Tslint] %s errors', cnt)
-    endif
-    endfunction
-  let g:tslint_callbacks = {
-    \ 'after_run': function('s:typescript_after')
-    \ }
-
-  let g:tsuquyomi_disable_quickfix = 1
-
-  function! s:ts_quickfix()
-    let winid = win_getid()
-    execute ':TsuquyomiGeterr'
-    call tslint#run('a', winid)
-  endfunction
-
-  autocmd BufWritePost *.ts,*.tsx silent! call s:ts_quickfix()
-augroup END
 
 set expandtab tabstop=2 softtabstop=2 shiftwidth=2
 set backspace=2
@@ -76,7 +53,6 @@ set backspace=2
 """""""""""""""""""""""""""""""""
 syntax enable
 set number relativenumber
-colorscheme github
 set colorcolumn=81
 
 " automatically rebalance windows on vim resize
@@ -97,8 +73,6 @@ nmap <leader>q :q<cr>
 nmap <leader>W :wq<cr>
 nmap <leader>Q :qa<cr>
 nmap <leader>so :source $MYVIMRC<cr>
-nmap <leader>T :! npx tsc --project .<cr>
-nmap <leader>P :w !pbcopy<cr><cr>
 
 nmap <leader>o o<Esc>k
 nmap <leader>O O<Esc>j
@@ -107,7 +81,7 @@ nmap <leader>O O<Esc>j
 nmap <leader>$ :%s/\s\+$//e<CR>
 
 " Internet says this is better...
-nmap <C-p> :FZF<cr>
+nmap <C-f> :FZF<cr>
 
 " TmuxNavigator Custom Controls
 " nmap <C-k> :TmuxNavigateUp<CR>
@@ -122,7 +96,6 @@ nmap <leader>f :grep -r --exclude-dir=node_modules <cword> *<CR>
 
 " Tab navigation
 nmap <expr> <leader> nr2char(getchar()).'gt'
-
 
 
 """""""""""""""""""""""""""""""""
@@ -158,3 +131,42 @@ autocmd QuickFixCmdPost *grep* cwindow
 " LEAVE!
 imap <C-l> <esc>
 
+" Conqueror of Completion COMMANDS
+" per: https://github.com/neoclide/coc.nvim/blob/master/doc/coc.txt#L653
+" Jump to definition(s) of current symbol.
+nmap <leader>cd <Plug>(coc-definition)
+" Jump to declaration(s) of current symbol.
+nmap <leader>cdd <Plug>(coc-declaration)
+" Jump to type definition(s) of current symbol.
+nmap <leader>ct <Plug>(coc-type-definition)
+" Show diagnostic message of current position, no truncate.
+nmap <leader>ci <Plug>(coc-diagnostic-info)
+" Jump to next diagnostic position.
+nmap <leader>T <Plug>(coc-diagnostic-next)
+" Jump to previous diagnostic position.
+nmap <leader>cp <Plug>(coc-diagnostic-prev)
+" Open refactor window for refactor of current symbol.
+nmap <leader>cr <Plug>(coc-refactor)
+
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/
+let g:rg_command = '
+  \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+  \ -g "*.{js,json,ts,md,tsx,rb,html,config,py,cpp,c,go,hs,rs,conf,vimrc}"
+  \ -g "!{.git,node_modules,vendor}/*" '
+
+command! -bang -nargs=* FindTheseWords call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+nmap <C-p> :FindTheseWords<cr>
