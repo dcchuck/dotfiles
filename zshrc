@@ -1,5 +1,3 @@
-export ZSH=/Users/chuck/.oh-my-zsh
-
 ZSH_THEME="friskChuck"
 CASE_SENSITIVE="true"
 
