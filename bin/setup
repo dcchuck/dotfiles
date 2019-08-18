@@ -29,6 +29,11 @@ if [ ! -h .zshrc ]; then
 	echo "ZSHRC symlink created"
 fi
 
+if [ ! -h .zshenv ]; then
+	ln -s ~/dotfiles/zshenv .zshenv
+	echo "ZSHENV symlink created"
+fi
+
 if [ ! -h .pryrc ]; then
 	ln -s ~/dotfiles/pryrc .pryrc
 	echo "PryRC symlink created"
