@@ -53,6 +53,16 @@ autocmd VimResized * :wincmd =
 
 set list listchars=trail:~,tab:·»,
 
+augroup CursorLineOnlyInActiveWindow
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+augroup END
+
+" 230 is the lightorange color from the github color scheme
+hi CursorLineNr ctermbg=230
+hi CursorLine ctermbg=230 cterm=none
+
 
 """""""""""""""""""""""""""""""""
 "                               "
