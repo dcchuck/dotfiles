@@ -16,7 +16,7 @@ call plug#begin('~/.vim/plugged')
 
   " Navigation
   Plug 'christoomey/vim-tmux-navigator'
-  Plug '/usr/local/opt/fzf'
+  Plug '~/.fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'dcchuck/tabline.vim'
   Plug 'tpope/vim-vinegar'
@@ -63,6 +63,8 @@ augroup END
 hi CursorLineNr ctermbg=230
 hi CursorLine ctermbg=230 cterm=none
 
+" Color Codes Cheat Sheet: https://jonasjacek.github.io/colors/
+hi LineNr ctermfg=250
 
 """""""""""""""""""""""""""""""""
 "                               "
@@ -178,7 +180,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/
 let g:rg_command = '
   \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
-  \ -g "*.{js,json,ts,md,tsx,rb,html,config,py,cpp,c,go,hs,rs,conf,vimrc}"
+  \ -g "*.{js,json,ts,md,tsx,rb,html,config,py,cpp,c,go,hs,rs,conf,vimrc,yml,csv}"
   \ -g "!{.git,node_modules,vendor}/*" '
 
 command! -bang -nargs=* FindTheseWords call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
