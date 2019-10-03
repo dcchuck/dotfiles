@@ -32,6 +32,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'elzr/vim-json'
   " Preview the current markdown file in the browser
   Plug 'shime/vim-livedown', { 'for': 'markdown' }
+  " Typescript Syntax Highlight
+  Plug 'HerringtonDarkholme/yats.vim'
 call plug#end()
 
 " Inser spaces; 2 of then; for the > indentation; and for default indentation
@@ -161,6 +163,7 @@ nmap <leader>T <Plug>(coc-diagnostic-next)
 nmap <leader>cp <Plug>(coc-diagnostic-prev)
 " Open refactor window for refactor of current symbol.
 nmap <leader>cr <Plug>(coc-refactor)
+
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
