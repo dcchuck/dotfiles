@@ -34,6 +34,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'shime/vim-livedown', { 'for': 'markdown' }
   " Typescript Syntax Highlight
   Plug 'HerringtonDarkholme/yats.vim'
+
+  " 'That disappointment ends today.' -tpope
+  Plug 'tpope/vim-repeat'
+
+
 call plug#end()
 
 " Inser spaces; 2 of then; for the > indentation; and for default indentation
@@ -188,3 +193,5 @@ let g:rg_command = '
 
 command! -bang -nargs=* FindTheseWords call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 nmap <C-p> :FindTheseWords<cr>
+
+hi Pmenu ctermbg=black ctermfg=white
