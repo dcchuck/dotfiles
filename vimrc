@@ -37,8 +37,6 @@ call plug#begin('~/.vim/plugged')
 
   " 'That disappointment ends today.' -tpope
   Plug 'tpope/vim-repeat'
-
-
 call plug#end()
 
 " Inser spaces; 2 of then; for the > indentation; and for default indentation
@@ -67,7 +65,7 @@ augroup CursorLineOnlyInActiveWindow
 augroup END
 
 " 230 is the lightorange color from the github color scheme
-hi CursorLineNr ctermbg=230
+hi CursorLineNr ctermbg=230 cterm=none
 hi CursorLine ctermbg=230 cterm=none
 
 " Color Codes Cheat Sheet: https://jonasjacek.github.io/colors/
@@ -195,3 +193,5 @@ command! -bang -nargs=* FindTheseWords call fzf#vim#grep(g:rg_command .shellesca
 nmap <C-p> :FindTheseWords<cr>
 
 hi Pmenu ctermbg=black ctermfg=white
+
+
