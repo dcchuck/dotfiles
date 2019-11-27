@@ -150,23 +150,17 @@ au insertleave * hi StatusLine ctermfg=22 ctermbg=15
 "                               "
 """""""""""""""""""""""""""""""""
 
-" Conqueror of Completion COMMANDS
-" per: https://github.com/neoclide/coc.nvim/blob/master/doc/coc.txt#L653
-" Jump to definition(s) of current symbol.
-nmap <leader>cd <Plug>(coc-definition)
-" Jump to declaration(s) of current symbol.
-nmap <leader>cdd <Plug>(coc-declaration)
-" Jump to type definition(s) of current symbol.
-nmap <leader>ct <Plug>(coc-type-definition)
-" Show diagnostic message of current position, no truncate.
-nmap <leader>ci <Plug>(coc-diagnostic-info)
-" Jump to next diagnostic position.
-nmap <leader>T <Plug>(coc-diagnostic-next)
-" Jump to previous diagnostic position.
-nmap <leader>cp <Plug>(coc-diagnostic-prev)
-" Open refactor window for refactor of current symbol.
-nmap <leader>cr <Plug>(coc-refactor)
+" Conqueror of Completion
 
+" Needed to show certain messages in vanilla vim
+set hidden
+set updatetime=300
+set shortmess=aFc
+
+" Keymappings
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
@@ -193,5 +187,4 @@ command! -bang -nargs=* FindTheseWords call fzf#vim#grep(g:rg_command .shellesca
 nmap <C-p> :FindTheseWords<cr>
 
 hi Pmenu ctermbg=black ctermfg=white
-
 
