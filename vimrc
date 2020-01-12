@@ -109,10 +109,13 @@ nmap <C-f> :FZF<cr>
 " <leader> (some number that correspdonds to a tab) navigates to that tab
 nmap <expr> <leader> nr2char(getchar()).'gt'
 
-" TmuxNavigator Custom Controls
-" This resolves an issue on Ubunut Desktop and seems to be harmless on MacOS
-nmap <C-k> :TmuxNavigateUp<CR>
-nmap <C-j> :TmuxNavigateDown<CR>
+let g:tmux_navigator_no_mappings = 1
+
+nmap <silent> <C-h> :TmuxNavigateLeft<cr>
+nmap <silent> <C-j> :TmuxNavigateDown<cr>
+nmap <silent> <C-k> :TmuxNavigateUp<cr>
+nmap <silent> <C-l> :TmuxNavigateRight<cr>
+nmap <silent> <C-\> :TmuxNavigatePrevious<cr>
 
 " Copy the visual selection to your local clipboard
 " mycopy is defined in the zshenv
