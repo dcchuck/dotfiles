@@ -1,5 +1,7 @@
 set nocompatible
 
+highlight Normal ctermbg=white ctermfg=black
+
 """"""""""""""""""""""""""""""""
 "                               "
 " Plugins                       "
@@ -134,7 +136,7 @@ set laststatus=2
 set statusline=%F%h%r
 " Modifier flag with custom highlight group
 set statusline+=%1*%m%*
-hi User1 ctermfg=15 ctermbg=160
+hi User1 ctermfg=250 ctermbg=white
 
 " Split Statusline - left and right justified
 set statusline+=%=
@@ -142,9 +144,9 @@ set statusline+=%=
 " Column,line/Lines
 set statusline+=%c,%l/%L
 
-hi StatusLine ctermfg=22 ctermbg=15
-au insertenter * hi StatusLine ctermfg=160 ctermbg=15
-au insertleave * hi StatusLine ctermfg=22 ctermbg=15
+hi StatusLine ctermfg=white ctermbg=250
+au insertenter * hi StatusLine ctermfg=red ctermbg=white
+au insertleave * hi StatusLine ctermfg=white ctermbg=250
 
 
 """""""""""""""""""""""""""""""""
