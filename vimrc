@@ -136,7 +136,7 @@ set laststatus=2
 set statusline=%F%h%r
 " Modifier flag with custom highlight group
 set statusline+=%1*%m%*
-hi User1 ctermfg=250 ctermbg=white
+hi User1 ctermfg=red ctermbg=white
 
 " Split Statusline - left and right justified
 set statusline+=%=
