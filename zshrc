@@ -10,8 +10,19 @@ eval "$(rbenv init -)"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
+export PATH="$HOME/dotfiles/bin/user:$PATH"
+
 export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+cas ''
+case `uname` in
+  Darwin)
+    . "/usr/local/opt/nvm/nvm.sh"
+  ;;
+  Linux)
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  ;;
+esac
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
