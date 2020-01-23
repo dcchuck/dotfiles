@@ -13,7 +13,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/dotfiles/bin/user:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
-cas ''
+
 case `uname` in
   Darwin)
     . "/usr/local/opt/nvm/nvm.sh"
