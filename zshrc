@@ -1,7 +1,7 @@
-ZSH_THEME="friskChuck"
+ZSH_THEME="my"
 CASE_SENSITIVE="true"
 
-plugins=(git)
+plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
