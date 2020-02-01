@@ -113,11 +113,11 @@ nmap <expr> <leader> nr2char(getchar()).'gt'
 
 let g:tmux_navigator_no_mappings = 1
 
-nmap <silent> <C-h> :TmuxNavigateLeft<cr>
-nmap <silent> <C-j> :TmuxNavigateDown<cr>
-nmap <silent> <C-k> :TmuxNavigateUp<cr>
-nmap <silent> <C-l> :TmuxNavigateRight<cr>
-nmap <silent> <C-\> :TmuxNavigatePrevious<cr>
+nmap <silent> <C-g><C-h> :TmuxNavigateLeft<cr>
+nmap <silent> <C-g><C-j> :TmuxNavigateDown<cr>
+nmap <silent> <C-g><C-k> :TmuxNavigateUp<cr>
+nmap <silent> <C-g><C-l> :TmuxNavigateRight<cr>
+nmap <silent> <C-g><C-\> :TmuxNavigatePrevious<cr>
 
 " Copy the visual selection to your local clipboard
 " mycopy is defined in the zshenv
