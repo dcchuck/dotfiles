@@ -48,33 +48,6 @@ set backspace=2
 
 """""""""""""""""""""""""""""""""
 "                               "
-" Visuals                       "
-"                               "
-"""""""""""""""""""""""""""""""""
-syntax enable
-set number relativenumber
-set colorcolumn=81
-
-" automatically rebalance windows on vim resize
-autocmd VimResized * :wincmd =
-
-set list listchars=trail:~,tab:·»,
-
-augroup CursorLineOnlyInActiveWindow
-  autocmd!
-  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-  autocmd WinLeave * setlocal nocursorline
-augroup END
-
-" 230 is the lightorange color from the github color scheme
-hi CursorLineNr ctermbg=230 cterm=none
-hi CursorLine ctermbg=230 cterm=none
-
-" Color Codes Cheat Sheet: https://jonasjacek.github.io/colors/
-hi LineNr ctermfg=250
-
-"""""""""""""""""""""""""""""""""
-"                               "
 " Mappings                      "
 "                               "
 """""""""""""""""""""""""""""""""
@@ -192,4 +165,33 @@ command! -bang -nargs=* FindTheseWords call fzf#vim#grep(g:rg_command .shellesca
 nmap <C-p> :FindTheseWords<cr>
 
 hi Pmenu ctermbg=black ctermfg=white
+
+
+"""""""""""""""""""""""""""""""""
+"                               "
+" Visuals                       "
+"                               "
+"""""""""""""""""""""""""""""""""
+" -> Moving this to the bottom resolved issues with my cursorline highlight
+syntax enable
+set number relativenumber
+set colorcolumn=81
+
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+
+set list listchars=trail:~,tab:·»,
+
+augroup CursorLineOnlyInActiveWindow
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+augroup END
+
+" 230 is the lightorange color from the github color scheme
+hi CursorLineNr ctermbg=230 cterm=none
+hi CursorLine ctermbg=230 cterm=none
+
+" Color Codes Cheat Sheet: https://jonasjacek.github.io/colors/
+hi LineNr ctermfg=250
 
