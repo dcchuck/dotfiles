@@ -14,7 +14,7 @@ if [ "$files_length" != "$mines_length" ]; then
   exit
 fi
 
-for ((i = 1; i <= "$files_length"; i++)); do
+for ((i = 0; i < "$files_length"; i++)); do
   echo "Setting up ${files[$i]}..."
   if [ ! -h "${files[$i]}" ]; then
     echo "Not found: ${files[$i]}"
@@ -26,14 +26,25 @@ for ((i = 1; i <= "$files_length"; i++)); do
     fi
     echo "Success!"
   else
-    echo "File found. Symlink not created for ${files[$i]}"
+    echo "File found. Symlink not created."
   fi
 done
 
-git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+zsh_auto_suggestions_dir=~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+if [ ! -d "$zsh_auto_suggestions_dir" ]; then
+  echo "Installing zsh-autosuggestions..."
+  git clone https://github.com/zsh-users/zsh-autosuggestions.git "$zsh_auto_suggestions_dir"
+fi
 
-mkdir -p ~/.rbenv/plugins
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+ruby_build_dir=~/.rbenv/plugins/ruby-build
+if [ ! -d "$ruby_build_dir" ]; then
+  echo "Installing up ruby_build..."
+  mkdir -p ~/.rbenv/plugins
+  git clone https://github.com/rbenv/ruby-build.git "$ruby_build_dir"
+fi
 
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+fzf_dir=~/.fzf
+if [ ! -d "$fzf_dir" ]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git "$fzf_dir"
+  "$fzf_dir"/install
+fi
