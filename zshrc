@@ -32,8 +32,19 @@ eval "$(pyenv init -)"
 # Use riprgrep with FZF
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 
-# FZF - to toggle fuzzy completion & key bindins, see ~/.fzf.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Setup fzf
+# ---------
+if [[ ! "$PATH" == */home/chuck/.fzf/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}/home/chuck/.fzf/bin"
+fi
+
+# Auto-completion
+# ---------------
+[[ $- == *i* ]] && source "/home/chuck/.fzf/shell/completion.zsh" 2> /dev/null
+
+# Key bindings
+# ------------
+source "/home/chuck/.fzf/shell/key-bindings.zsh"
 
 alias bs="brew services"
 alias dcom="docker-compose"

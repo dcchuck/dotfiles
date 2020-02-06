@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 cd ~ || exit
 
@@ -7,34 +7,33 @@ mines=( vimrc  tmux.conf  zshrc  zshenv  pryrc  my.zsh-theme)
 files_length=${#files[@]}
 mines_length=${#mines[@]}
 
-echo "$files_length"
-if [ $files_length != $mines_length ]; then
+if [ "$files_length" != "$mines_length" ]; then
   printf "\nArrays 'files' and 'mines' do not match in length"
   printf "\nEach 'file' requires a corresponding 'mine' version"
   printf "\n\nCheck the arrays and re-run."
   exit
 fi
 
-for ((i = 1; i <= $files_length; i++)); do
-  echo "${files[$i]}"
-  if [ ! -h ${files[$i]} ]; then
+for ((i = 1; i <= "$files_length"; i++)); do
+  echo "Setting up ${files[$i]}..."
+  if [ ! -h "${files[$i]}" ]; then
     echo "Not found: ${files[$i]}"
     echo "Creating SYMLINK..."
-    ln -s ~/dotfiles/${mines[$i]} ${files[$i]}
-    if [ ! -h ${files[$i]} ]; then
-      echo "PANIC - unable to create SYMLINK"
+    ln -s ~/dotfiles/"${mines[$i]}" "${files[$i]}"
+    if [ ! -h "${files[$i]}" ]; then
       echo "Failure while trying to create ${files[$i]}"
       exit
     fi
     echo "Success!"
+  else
+    echo "File found. Symlink not created for ${files[$i]}"
   fi
-  echo "All set."
 done
 
-cd ~/.oh-my-zsh/custom/plugins || exit
-git clone https://github.com/zsh-users/zsh-autosuggestions.git
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
-cd ~/.rbenv/ || exit
-mkdir plugins
-cd plugins
-git clone https://github.com/rbenv/ruby-build.git
+mkdir -p ~/.rbenv/plugins
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
