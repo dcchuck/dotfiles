@@ -35,17 +35,17 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,
 
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */home/chuck/.fzf/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/chuck/.fzf/bin"
+if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}$HOME/.fzf/bin"
 fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/home/chuck/.fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
 
 # Key bindings
 # ------------
-source "/home/chuck/.fzf/shell/key-bindings.zsh"
+source "$HOME/.fzf/shell/key-bindings.zsh"
 
 alias bs="brew services"
 alias dcom="docker-compose"
@@ -54,17 +54,17 @@ alias flushdns="sudo killall -HUP mDNSResponder"
 # git rev-parse --abrev-ref HEAD | -> returns the current branch name
 # so this line will push your branch and make a new upstreame one with the same name
 alias gitpusher="git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
-alias machina="~/rosh/emqb/bin/machina"
+alias machina="$HOME/rosh/emqb/bin/machina"
 alias mycopy="pbcopy"
 alias mypaste="pbpaste"
-alias sourceme="source ~/.zshrc"
+alias sourceme="source $HOME/.zshrc"
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 kill_touch_screen () {
   xinput disable `xinput --list | egrep -o "Touchscreen.+id=[0-9]+" | egrep -o "[0-9]+"`
 }
 alias killtouch=kill_touch_screen
 
-export ANDROID_HOME="/Users/chuck/Library/Android/sdk"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 
