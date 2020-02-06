@@ -22,6 +22,7 @@ case `uname` in
   Linux)
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    # Disable the touch screen on my linux machine...
   ;;
 esac
 
@@ -58,7 +59,15 @@ alias mycopy="pbcopy"
 alias mypaste="pbpaste"
 alias sourceme="source ~/.zshrc"
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+kill_touch_screen () {
+  xinput disable `xinput --list | egrep -o "Touchscreen.+id=[0-9]+" | egrep -o "[0-9]+"`
+}
+alias killtouch=kill_touch_screen
 
 export ANDROID_HOME="/Users/chuck/Library/Android/sdk"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
+
+
+
+
