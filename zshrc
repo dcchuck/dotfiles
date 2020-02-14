@@ -53,7 +53,7 @@ alias e="vim"
 alias flushdns="sudo killall -HUP mDNSResponder"
 # git rev-parse --abrev-ref HEAD | -> returns the current branch name
 # so this line will push your branch and make a new upstreame one with the same name
-alias gitpusher="git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
+alias gitpusher='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
 alias machina="$HOME/rosh/emqb/bin/machina"
 alias mycopy="pbcopy"
 alias mypaste="pbpaste"
