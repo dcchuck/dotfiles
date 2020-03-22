@@ -67,7 +67,3 @@ alias killtouch=kill_touch_screen
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
-
-
-
-
