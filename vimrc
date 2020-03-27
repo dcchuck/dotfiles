@@ -35,7 +35,7 @@ call plug#begin('~/.vim/plugged')
   " Preview the current markdown file in the browser
   Plug 'shime/vim-livedown', { 'for': 'markdown' }
   " Typescript Syntax Highlight
-  Plug 'dcchuck/yats.vim', {'branch': 'enhancement/issue-167'}
+  Plug 'HerringtonDarkholme/yats.vim'
 
   " 'That disappointment ends today.' -tpope
   Plug 'tpope/vim-repeat'
