@@ -29,16 +29,17 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-endwise'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-  " Convenience
-  " Nice syntax highlighting for JSON
-  Plug 'elzr/vim-json'
   " Preview the current markdown file in the browser
   Plug 'shime/vim-livedown', { 'for': 'markdown' }
-  " Typescript Syntax Highlight
-  Plug 'HerringtonDarkholme/yats.vim'
+
+  " Syntax
+  Plug 'MaxMEllon/vim-jsx-pretty'             " React
+  Plug 'HerringtonDarkholme/yats.vim'         " .ts & .tsx
+  Plug 'elzr/vim-json'                        " .json pretty print
 
   " 'That disappointment ends today.' -tpope
   Plug 'tpope/vim-repeat'
+
 call plug#end()
 
 " Inser spaces; 2 of then; for the > indentation; and for default indentation
@@ -63,7 +64,7 @@ nmap <leader>h :nohlsearch<cr>
 " Shortcuts for writing and quitting files
 nmap <leader>w :w<cr>
 nmap <leader>q :q<cr>
-nmap <leader>W :wq<cr>
+nmap <leader>W :wa<cr>
 nmap <leader>Q :qa<cr>
 
 " Put a blank line above or below
