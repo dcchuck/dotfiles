@@ -37,9 +37,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'HerringtonDarkholme/yats.vim'         " .ts & .tsx
   Plug 'elzr/vim-json'                        " .json pretty print
 
-  " 'That disappointment ends today.' -tpope
+  " Use repeat for plugins
   Plug 'tpope/vim-repeat'
 
+  " Show colors in place of codes
+  Plug 'chrisbra/Colorizer'
+
+  " Testing
+  Plug 'junegunn/vader.vim', { 'for': 'vader' }
 call plug#end()
 
 " Inser spaces; 2 of then; for the > indentation; and for default indentation
