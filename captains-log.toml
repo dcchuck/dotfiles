@@ -1,0 +1,15 @@
+title = "Journal Configuration"
+editor = "vim"
+
+[clog]
+clog_dir = "~/Dropbox/captains-log"
+clog_extension = ".clog"
+clog_archive_extension = ".archive"
+
+[task]
+task_db_dir = "~/Dropbox/"
+task_db_name = "tasks.db"
+
+[todo]
+todo_dir = "~/Dropbox/"
+todo_file = "todo"
