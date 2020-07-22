@@ -180,7 +180,7 @@ hi Pmenu ctermbg=black ctermfg=white
 """""""""""""""""""""""""""""""""
 " -> Moving this to the bottom resolved issues with my cursorline highlight
 syntax enable
-set number relativenumber
+set number
 set colorcolumn=81
 
 " automatically rebalance windows on vim resize
