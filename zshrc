@@ -12,6 +12,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.captains-log/bin:$PATH"
 
 export PATH="$HOME/dotfiles/bin/user:$PATH"
+export PATH="/usr/local/xtrabackup/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 
