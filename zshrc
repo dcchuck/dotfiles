@@ -51,6 +51,7 @@ source "$HOME/.fzf/shell/key-bindings.zsh"
 
 alias bs="brew services"
 alias dcom="docker-compose"
+alias dsync="docker-sync stop && docker-sync start"
 alias e="vim"
 alias flushdns="sudo killall -HUP mDNSResponder"
 alias machina="$HOME/rosh/emqb/bin/machina"
