@@ -87,6 +87,9 @@ nmap <leader>$ :%s/\s\+$//e<CR>
 " " 'F'ind me the file named...
 nmap <C-f> :FZF<cr>
 
+" Buffer in a new tab to the current buffer's directory
+nmap <C-t> :tabe %:p:h<cr>
+
 " <leader> (some number that correspdonds to a tab) navigates to that tab
 nmap <expr> <leader> nr2char(getchar()).'gt'
 
