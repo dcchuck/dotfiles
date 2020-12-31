@@ -8,6 +8,6 @@ case `uname` in
     export ZSH=$HOME/.oh-my-zsh
     alias mycopy="xclip -selection clipboard"
     alias o="xdg-open"
-    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    # eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
   ;;
 esac

@@ -35,7 +35,7 @@ call plug#begin('~/.vim/plugged')
   " Syntax
   Plug 'MaxMEllon/vim-jsx-pretty'             " React
   Plug 'HerringtonDarkholme/yats.vim'         " .ts & .tsx
-  Plug 'elzr/vim-json'                        " .json pretty print
+  " Plug 'elzr/vim-json'                        " .json pretty print
 
   " Use repeat for plugins
   Plug 'tpope/vim-repeat'
