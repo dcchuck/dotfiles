@@ -5,27 +5,7 @@ plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.captains-log/bin:$PATH"
-
 export PATH="$HOME/dotfiles/bin/user:$PATH"
-export PATH="/usr/local/xtrabackup/bin:$PATH"
-
-export PATH="/usr/local/xtrabackup/bin:$PATH"
-
-# fnm - alternative node version manager
-export PATH="$HOME/.fnm:$PATH"
-eval "`fnm env --multi`"
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-export PATH="$HOME/github/gambling/bin:$PATH"
 
 # Use riprgrep with FZF
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
@@ -66,8 +46,12 @@ export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 
 # fnm
 export PATH=/home/chuck/.fnm:$PATH
-eval "`fnm env --multi`"
+eval "`fnm env`"
 
 bindkey '^K' autosuggest-accept
 
 alias ngrok="~/ngrok"
+
+# fnm
+export PATH=/home/chuck/.fnm:$PATH
+eval "`fnm env`"
