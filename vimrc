@@ -35,7 +35,8 @@ call plug#begin('~/.vim/plugged')
   " Syntax
   Plug 'MaxMEllon/vim-jsx-pretty'             " React
   Plug 'HerringtonDarkholme/yats.vim'         " .ts & .tsx
-  Plug 'elzr/vim-json'                        " .json pretty print
+  Plug 'tomlion/vim-solidity'
+  " Plug 'elzr/vim-json'                        " .json pretty print
 
   " Use repeat for plugins
   Plug 'tpope/vim-repeat'
@@ -204,3 +205,9 @@ hi CursorLine ctermbg=230 cterm=none
 " Color Codes Cheat Sheet: https://jonasjacek.github.io/colors/
 hi LineNr ctermfg=250
 
+function Pypry()
+  let text = "import code; code.interact(local=dict(globals(), **locals()))"
+  exe "normal! a" . text . "\<Esc>"
+endfunction
+
+nmap <C-i> :call Pypry()<cr>
