@@ -37,6 +37,7 @@ kill_touch_screen () {
   xinput disable `xinput --list | egrep -o "Touchscreen.+id=[0-9]+" | egrep -o "[0-9]+"`
 }
 alias killtouch=kill_touch_screen
+alias python="python3"
 
 alias clog="~/github/clog/clog"
 
@@ -55,3 +56,11 @@ alias ngrok="~/ngrok"
 # fnm
 export PATH=/home/chuck/.fnm:$PATH
 eval "`fnm env`"
+
+# geckodriver
+export PATH="$HOME/github/gambling/gamblor/bin/geckodriver-v0.28.0-linux32:$PATH"
+
+# DJANGO CHAINS
+alias pmg="python3 manage.py"
+
+export PYTHON="/usr/bin/python2"
