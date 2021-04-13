@@ -1,7 +1,9 @@
 ZSH_THEME="my"
 CASE_SENSITIVE="true"
 
+# installed via bin/setup
 plugins=(git zsh-autosuggestions)
+bindkey '^K' autosuggest-accept
 
 source $ZSH/oh-my-zsh.sh
 
@@ -25,42 +27,24 @@ fi
 source "$HOME/.fzf/shell/key-bindings.zsh"
 
 alias bs="brew services"
-alias dcom="docker-compose -f docker-compose-linux.yml"
 alias e="vim"
 alias flushdns="sudo killall -HUP mDNSResponder"
-alias machina="$HOME/rosh/emqb/bin/machina"
-alias mycopy="pbcopy"
-alias mypaste="pbpaste"
 alias sourceme="source $HOME/.zshrc"
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-kill_touch_screen () {
-  xinput disable `xinput --list | egrep -o "Touchscreen.+id=[0-9]+" | egrep -o "[0-9]+"`
-}
-alias killtouch=kill_touch_screen
 alias python="python3"
 
-alias clog="~/github/clog/clog"
-
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH="/usr/local/opt/libxml2/bin:$PATH"
-export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 
 # fnm
 export PATH=/home/chuck/.fnm:$PATH
 eval "`fnm env`"
 
-bindkey '^K' autosuggest-accept
-
-alias ngrok="~/ngrok"
-
-# fnm
-export PATH=/home/chuck/.fnm:$PATH
-eval "`fnm env`"
-
-# geckodriver
-export PATH="$HOME/github/gambling/gamblor/bin/geckodriver-v0.28.0-linux32:$PATH"
-
-# DJANGO CHAINS
-alias pmg="python3 manage.py"
-
-export PYTHON="/usr/bin/python2"
+case `uname` in
+  Darwin)
+    alias mycopy="pbcopy"
+    alias o="open"
+  ;;
+  Linux)
+    alias mycopy="xclip -selection clipboard"
+    alias o="xdg-open"
+  ;;
+esac
