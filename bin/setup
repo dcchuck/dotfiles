@@ -2,8 +2,8 @@
 
 cd ~ || exit
 
-files=(.vimrc .tmux.conf .zshrc .zshenv .pryrc ".oh-my-zsh/custom/themes/my.zsh-theme")
-mines=( vimrc  tmux.conf  zshrc  zshenv  pryrc  my.zsh-theme)
+files=(.vimrc .tmux.conf .zshrc .zshenv ".oh-my-zsh/custom/themes/my.zsh-theme")
+mines=( vimrc  tmux.conf  zshrc  zshenc  my.zsh-theme)
 files_length=${#files[@]}
 mines_length=${#mines[@]}
 
@@ -27,6 +27,7 @@ for ((i = 0; i < "$files_length"; i++)); do
     echo "Success!"
   else
     echo "File found. Symlink not created."
+    echo "If the file should not exist, delete it and re-run the script."
   fi
 done
 
@@ -34,17 +35,4 @@ zsh_auto_suggestions_dir=~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 if [ ! -d "$zsh_auto_suggestions_dir" ]; then
   echo "Installing zsh-autosuggestions..."
   git clone https://github.com/zsh-users/zsh-autosuggestions.git "$zsh_auto_suggestions_dir"
-fi
-
-ruby_build_dir=~/.rbenv/plugins/ruby-build
-if [ ! -d "$ruby_build_dir" ]; then
-  echo "Installing up ruby_build..."
-  mkdir -p ~/.rbenv/plugins
-  git clone https://github.com/rbenv/ruby-build.git "$ruby_build_dir"
-fi
-
-fzf_dir=~/.fzf
-if [ ! -d "$fzf_dir" ]; then
-  git clone --depth 1 https://github.com/junegunn/fzf.git "$fzf_dir"
-  "$fzf_dir"/install
 fi
