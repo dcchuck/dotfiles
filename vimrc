@@ -7,45 +7,30 @@ highlight Normal ctermbg=white ctermfg=black
 " Plugins                       "
 "                               "
 """""""""""""""""""""""""""""""""
+
+let g:tmux_navigator_no_mappings = 1
+
 call plug#begin('~/.vim/plugged')
 
-  " Git
+  " git plugin
   Plug 'tpope/vim-fugitive'
-
-  " Word Object Manipulation
+  " add commenting bindings
   Plug 'tpope/vim-commentary'
+  " surrounding quotes, brackets, etc.
   Plug 'tpope/vim-surround'
-
-  " Navigation
+  " command to smooth out tmux panes -> vim split navigation.
+  " see: plugin bindings
   Plug 'christoomey/vim-tmux-navigator'
-  Plug '~/.fzf'
+  " fzf fuzzy file finder
   Plug 'junegunn/fzf.vim'
+  " tabs in the top right
   Plug 'dcchuck/tabline.vim'
+  " customize netrw
   Plug 'tpope/vim-vinegar'
-
-  " Autocompletion
-  Plug 'jiangmiao/auto-pairs'
-  Plug 'alvan/vim-closetag'
-  Plug 'tpope/vim-endwise'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-  " Preview the current markdown file in the browser
-  Plug 'shime/vim-livedown', { 'for': 'markdown' }
-
-  " Syntax
-  Plug 'MaxMEllon/vim-jsx-pretty'             " React
-  Plug 'HerringtonDarkholme/yats.vim'         " .ts & .tsx
-  Plug 'tomlion/vim-solidity'
-  " Plug 'elzr/vim-json'                        " .json pretty print
-
-  " Use repeat for plugins
+  " use the dot-operator with plugin
   Plug 'tpope/vim-repeat'
-
-  " Show colors in place of codes
-  Plug 'chrisbra/Colorizer'
-
-  " Testing
-  Plug 'junegunn/vader.vim', { 'for': 'vader' }
+  " Captain's Log
+  Plug 'dcchuck/captains-log.vim'
 call plug#end()
 
 " Inser spaces; 2 of then; for the > indentation; and for default indentation
@@ -58,6 +43,17 @@ set backspace=2
 " Mappings                      "
 "                               "
 """""""""""""""""""""""""""""""""
+" Plugin Mappings
+" See tmux.conf for paired bindings
+" Vim does not register Alt well in all terminals, apparently one of those in
+" the one I'm in. So for now, creating these complex commands and bindings
+" them to tmux does the trick
+nmap <silent> <C-g><C-h> :TmuxNavigateLeft<cr>
+nmap <silent> <C-g><C-j> :TmuxNavigateDown<cr>
+nmap <silent> <C-g><C-k> :TmuxNavigateUp<cr>
+nmap <silent> <C-g><C-l> :TmuxNavigateRight<cr>
+nmap <silent> <C-g><C-\> :TmuxNavigatePrevious<cr>
+
 " |-|
 " | |_ EADER
 " |___|       mappings
@@ -94,19 +90,11 @@ nmap <C-t> :tabe %:p:h<cr>
 " <leader> (some number that correspdonds to a tab) navigates to that tab
 nmap <expr> <leader> nr2char(getchar()).'gt'
 
-let g:tmux_navigator_no_mappings = 1
-
-nmap <silent> <C-g><C-h> :TmuxNavigateLeft<cr>
-nmap <silent> <C-g><C-j> :TmuxNavigateDown<cr>
-nmap <silent> <C-g><C-k> :TmuxNavigateUp<cr>
-nmap <silent> <C-g><C-l> :TmuxNavigateRight<cr>
-nmap <silent> <C-g><C-\> :TmuxNavigatePrevious<cr>
-
 " Copy the visual selection to your local clipboard
 " mycopy is defined in the zshenv
 vnoremap <C-c> :w !mycopy<CR><CR>
 
-" LEAVE!
+" LEAVE! My escape mapping of choice
 imap <C-l> <esc>
 
 """""""""""""""""""""""""""""""""
@@ -127,11 +115,6 @@ set statusline+=%=
 " Column,line/Lines
 set statusline+=%c,%l/%L
 
-hi StatusLine ctermfg=white ctermbg=250
-au insertenter * hi StatusLine ctermfg=red ctermbg=white
-au insertleave * hi StatusLine ctermfg=white ctermbg=250
-
-
 """""""""""""""""""""""""""""""""
 "                               "
 " Convenience                   "
@@ -145,25 +128,6 @@ set hidden
 set updatetime=300
 set shortmess=aFc
 
-" Keymappings
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-nmap <silent> gd <Plug>(coc-definition)
-
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
 " Fuzzy Search!
 " http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/
 let g:rg_command = '
@@ -175,7 +139,6 @@ command! -bang -nargs=* FindTheseWords call fzf#vim#grep(g:rg_command .shellesca
 nmap <C-p> :FindTheseWords<cr>
 
 hi Pmenu ctermbg=black ctermfg=white
-
 
 """""""""""""""""""""""""""""""""
 "                               "
@@ -211,3 +174,15 @@ function Pypry()
 endfunction
 
 nmap <C-i> :call Pypry()<cr>
+nmap <A-i> :call Pypry()<cr>
+set rtp+=/opt/homebrew/opt/fzf
+
+" use the latest regular expression engine. Proved more performant when using
+" in buffer type checking
+set re=0
+
+" use rg with FZF; this should respect the .gitignore
+let $FZF_DEFAULT_COMMAND = 'rg --files'
+
+" Use distinguished colorscheme
+colo distinguished
