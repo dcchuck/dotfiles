@@ -91,8 +91,10 @@ nmap <C-t> :tabe %:p:h<cr>
 nmap <expr> <leader> nr2char(getchar()).'gt'
 
 " Copy the visual selection to your local clipboard
-" mycopy is defined in the zshenv
-vnoremap <C-c> :w !mycopy<CR><CR>
+" mycopy is defined in the zshenv, not the rc - as the vim shell is not
+" interactive
+vnoremap <C-c> :w !mycopy<Cr><Cr>
+
 
 " LEAVE! My escape mapping of choice
 imap <C-l> <esc>

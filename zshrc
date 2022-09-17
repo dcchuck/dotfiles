@@ -36,7 +36,6 @@ alias pmanplus="python3 manage.py shell_plus"
 
 case `uname` in
   Darwin)
-    alias mycopy="pbcopy"
     alias o="open"
 
     # Mac specific
@@ -44,7 +43,6 @@ case `uname` in
     alias flushdns="sudo killall -HUP mDNSResponder"
   ;;
   Linux)
-    alias mycopy="xclip -selection clipboard"
     alias o="xdg-open"
   ;;
 esac
@@ -79,3 +77,4 @@ export PATH="$HOME/dotfiles/bin/user:$PATH"
 # Use riprgrep with FZF
 # Leaving this off for now
 # export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+#
