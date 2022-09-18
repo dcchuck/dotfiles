@@ -27,6 +27,8 @@ source $ZSH/oh-my-zsh.sh
  #
  # #########
 
+# override alias to list but ignore swap files
+alias l="ls -lah | grep -v '.swp'"
 alias e="vim"
 alias sourceme="source $HOME/.zshrc"
 
