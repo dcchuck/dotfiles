@@ -184,7 +184,7 @@ set rtp+=/opt/homebrew/opt/fzf
 set re=0
 
 " use rg with FZF; this should respect the .gitignore
-let $FZF_DEFAULT_COMMAND = 'rg --files'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 
 " Use distinguished colorscheme
 colo distinguished
