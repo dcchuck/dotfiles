@@ -29,7 +29,6 @@ source $ZSH/oh-my-zsh.sh
 
 # override alias to list but ignore swap files
 alias l="ls -lah | grep -v '.swp'"
-alias e="vim"
 alias sourceme="source $HOME/.zshrc"
 
 # Django
@@ -39,6 +38,7 @@ alias pmanplus="python3 manage.py shell_plus"
 case `uname` in
   Darwin)
     alias o="open"
+    alias e="/opt/homebrew/bin/vim"
 
     # Mac specific
     alias bs="brew services"
@@ -46,6 +46,7 @@ case `uname` in
   ;;
   Linux)
     alias o="xdg-open"
+    alias e="vim"
   ;;
 esac
 

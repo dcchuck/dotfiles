@@ -31,6 +31,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-repeat'
   " Captain's Log
   Plug 'dcchuck/captains-log.vim'
+  " Typescript Syntax
+  Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 " Inser spaces; 2 of then; for the > indentation; and for default indentation
