@@ -16,6 +16,7 @@ fi
 
 for ((i = 0; i < "$files_length"; i++)); do
   echo "Setting up ${files[$i]}..."
+  # checks if the file is a symlink
   if [ ! -h "${files[$i]}" ]; then
     echo "Not found: ${files[$i]}"
     echo "Creating SYMLINK..."
