@@ -2,8 +2,8 @@
 
 cd ~ || exit
 
-files=(.vimrc .tmux.conf .zshrc .zshenv ".oh-my-zsh/custom/themes/my.zsh-theme")
-mines=( vimrc  tmux.conf  zshrc  zshenv  my.zsh-theme)
+files=(.vimrc .tmux.conf .zshrc .zshenv ".oh-my-zsh/custom/themes/my.zsh-theme" .ideavimrc)
+mines=( vimrc  tmux.conf  zshrc  zshenv  my.zsh-theme ideavimrc)
 files_length=${#files[@]}
 mines_length=${#mines[@]}
 
