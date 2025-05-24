@@ -15,5 +15,3 @@ mycopy() {
   esac
 }
 
-export -f mycopy
-

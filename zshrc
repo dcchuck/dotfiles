@@ -54,17 +54,12 @@ esac
  #
  # #########
 
-# SOLANA dev
-export PATH="/Users/chuck/.local/share/solana/install/active_release/bin:$PATH"
-# Anchor dev
-export PATH="/Users/chuck/.avm/bind:$PATH"
-
 # setup fnm
 # https://github.com/Schniz/fnm#shell-setup
 eval "$(fnm env --use-on-cd)"
 
 # enable fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # add clog command
 export PATH="$HOME/.captains-log/bin:$PATH"
@@ -78,4 +73,23 @@ export PATH="$HOME/dotfiles/bin/user:$PATH"
 # Use riprgrep with FZF
 # Leaving this off for now
 # export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-#
+
+# Keeping this here
+# https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+##
+# GO
+##
+
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
+
+##
+# ENDGO
+##
+
+export PATH="$HOME/.lbranch/bin:$PATH"
+alias lb=lbranch

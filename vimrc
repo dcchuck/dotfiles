@@ -32,7 +32,7 @@ call plug#begin('~/.vim/plugged')
   " Captain's Log
   Plug 'dcchuck/captains-log.vim'
   " Typescript Syntax
-  Plug 'leafgarland/typescript-vim'
+  " Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 " Inser spaces; 2 of then; for the > indentation; and for default indentation
@@ -150,7 +150,7 @@ hi Pmenu ctermbg=black ctermfg=white
 "                               "
 """""""""""""""""""""""""""""""""
 " -> Moving this to the bottom resolved issues with my cursorline highlight
-syntax enable
+" syntax enable
 set number
 set colorcolumn=81
 
@@ -189,4 +189,4 @@ set re=0
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 
 " Use distinguished colorscheme
-colo distinguished
+colo delek
