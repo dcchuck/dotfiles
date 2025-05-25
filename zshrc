@@ -21,7 +21,7 @@ source $ZSH/oh-my-zsh.sh
 # Alias Section
 # Form
 alias o="open"
-alias e="/opt/homebrew/bin/vim"
+alias e="vim"
 alias n="pnpm"
 alias bs="brew services"
 alias dc="docker compose"

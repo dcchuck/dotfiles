@@ -1,7 +1,8 @@
-#!/bin/bash
+#!/bin/zsh
 
 cd ~ || exit
 
+# Create symlinks for system files
 files=(.vimrc .tmux.conf .zshrc .zshenv ".oh-my-zsh/custom/themes/my.zsh-theme" .ideavimrc .zshrc.local)
 mines=( vimrc  tmux.conf  zshrc  zshenv  my.zsh-theme ideavimrc zshrc.local)
 files_length=${#files[@]}
@@ -14,7 +15,7 @@ if [ "$files_length" != "$mines_length" ]; then
   exit
 fi
 
-for ((i = 0; i < "$files_length"; i++)); do
+for ((i = 1; i <= "$files_length"; i++)); do
   echo "Setting up ${files[$i]}..."
   if [ ! -h "${files[$i]}" ]; then
     echo "Not found: ${files[$i]}"
@@ -31,8 +32,29 @@ for ((i = 0; i < "$files_length"; i++)); do
   fi
 done
 
+# ZSH Plugin Setup
 zsh_auto_suggestions_dir=~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
 if [ ! -d "$zsh_auto_suggestions_dir" ]; then
   echo "Installing zsh-autosuggestions..."
   git clone https://github.com/zsh-users/zsh-autosuggestions.git "$zsh_auto_suggestions_dir"
+fi
+
+# Brew package installation
+if command -v brew &> /dev/null; then
+  echo "Homebrew found. Installing packages..."
+
+  # Array of packages to install
+  packages=(vim mise fzf ripgrep)
+
+  for package in "${packages[@]}"; do
+    if brew list "$package" &> /dev/null; then
+      echo "$package is already installed"
+    else
+      echo "Installing $package..."
+      brew install "$package"
+    fi
+  done
+else
+  echo "Homebrew not found. Skipping package installation."
 fi
