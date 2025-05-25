@@ -58,3 +58,30 @@ if command -v brew &> /dev/null; then
 else
   echo "Homebrew not found. Skipping package installation."
 fi
+
+# Mise configuration setup
+mise_config_link=~/.config/mise/config.toml
+mise_config_source=~/dotfiles/mise.config.toml
+
+echo "Setting up mise configuration..."
+if [ ! -h "$mise_config_link" ]; then
+  echo "Mise config symlink not found."
+  
+  # Create .config/mise directory if it doesn't exist
+  mise_dir=~/.config/mise
+  if [ ! -d "$mise_dir" ]; then
+    echo "Creating mise directory..."
+    mkdir -p "$mise_dir"
+  fi
+  
+  echo "Creating mise config symlink..."
+  ln -s "$mise_config_source" "$mise_config_link"
+  
+  if [ -h "$mise_config_link" ]; then
+    echo "Mise config symlink created successfully!"
+  else
+    echo "Failed to create mise config symlink"
+  fi
+else
+  echo "Mise config symlink already exists. Skipping."
+fi

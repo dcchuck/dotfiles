@@ -1,0 +1,7 @@
+[settings]
+experimental = true
+
+[tools]
+node = "lts"
+python = "3.13"
+pnpm = "10.11.0"
