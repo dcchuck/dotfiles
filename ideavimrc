@@ -1,0 +1,29 @@
+set nocompatible
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set backspace=2
+set number
+set incsearch
+set hlsearch
+
+let mapleader = " "
+
+nmap <leader>h :nohlsearch<cr>
+nmap <leader>w :w<cr>
+nmap <leader>q :q<cr>
+nmap <leader>W :wa<cr>
+nmap <leader>Q :qa<cr>
+nmap <leader>o o<Esc>k
+nmap <leader>O O<Esc>j
+nmap <leader>$ :%s/\s\+$//e<CR>
+
+nmap <expr> <leader> nr2char(getchar()).'gt'
+imap <C-l> <esc>
+
+set surround
+set commentary
+set ideajoin
+set visualbell
+set noerrorbells
