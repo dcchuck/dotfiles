@@ -1,19 +1,16 @@
+# Homebrew for packages
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
- # #########
- #
- # Oh-My-ZSH Stuff
- #
- # #########
+# mise-en-place for developer tooling
+eval "$(mise activate zsh)"
+alias m="mise"
 
-# Theme
-# stripped version of another theme; installed in bin/setup
+# use my personal theme
 ZSH_THEME="my"
 # Use case sensitve completion
 CASE_SENSITIVE="true"
 
 # installed via bin/setup
-# git gives me the nuce status line; autosuggestions rely on the history for
-# autocomplete
 plugins=(git zsh-autosuggestions)
 bindkey '^K' autosuggest-accept
 
@@ -21,61 +18,28 @@ bindkey '^K' autosuggest-accept
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
- # #########
- #
- # Alias Section
- #
- # #########
-
+# Alias Section
+# Form
+alias o="open"
+alias e="/opt/homebrew/bin/vim"
+alias n="pnpm"
+alias bs="brew services"
+alias dc="docker compose"
+alias lb=lbranch
+# Function
+alias flushdns="sudo killall -HUP mDNSResponder"
 alias sourceme="source $HOME/.zshrc"
 
-# Django
-alias pman="python3 manage.py"
-alias pmanplus="python3 manage.py shell_plus"
-
-case `uname` in
-  Darwin)
-    alias o="open"
-    alias e="/opt/homebrew/bin/vim"
-
-    # Mac specific
-    alias bs="brew services"
-    alias flushdns="sudo killall -HUP mDNSResponder"
-  ;;
-  Linux)
-    alias o="xdg-open"
-    alias e="vim"
-  ;;
-esac
-
- # #########
- #
- # Path Section
- #
- # #########
-
-# SOLANA dev
-export PATH="/Users/chuck/.local/share/solana/install/active_release/bin:$PATH"
-# Anchor dev
-export PATH="/Users/chuck/.avm/bind:$PATH"
-
-# setup fnm
-# https://github.com/Schniz/fnm#shell-setup
-eval "$(fnm env --use-on-cd)"
+# Path Section
+# code
+export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+# my custom scripts that I want added to my path
+export PATH="$HOME/dotfiles/bin/user:$PATH"
 
 # enable fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# add clog command
-export PATH="$HOME/.captains-log/bin:$PATH"
-
-# add code command
-export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
-
-# my custom scripts that I want added to my path
-export PATH="$HOME/dotfiles/bin/user:$PATH"
-
-# Use riprgrep with FZF
-# Leaving this off for now
-# export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-#
+# Source local configuration if it exists
+if [[ -f "$HOME/.zshrc.local" ]]; then
+    source "$HOME/.zshrc.local"
+fi
