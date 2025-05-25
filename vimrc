@@ -12,8 +12,6 @@ let g:tmux_navigator_no_mappings = 1
 
 call plug#begin('~/.vim/plugged')
 
-  " git plugin
-  Plug 'tpope/vim-fugitive'
   " add commenting bindings
   Plug 'tpope/vim-commentary'
   " surrounding quotes, brackets, etc.
@@ -29,10 +27,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-vinegar'
   " use the dot-operator with plugin
   Plug 'tpope/vim-repeat'
-  " Captain's Log
-  Plug 'dcchuck/captains-log.vim'
-  " Typescript Syntax
-  Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 " Inser spaces; 2 of then; for the > indentation; and for default indentation
@@ -93,9 +87,7 @@ nmap <C-t> :tabe %:p:h<cr>
 nmap <expr> <leader> nr2char(getchar()).'gt'
 
 " Copy the visual selection to your local clipboard
-" mycopy is defined in the zshenv, not the rc - as the vim shell is not
-" interactive
-vnoremap <C-c> :w !mycopy<Cr><Cr>
+vnoremap <C-c> :w !pbcopy<Cr><Cr>
 
 
 " LEAVE! My escape mapping of choice
