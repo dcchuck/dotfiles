@@ -39,6 +39,27 @@ export PATH="$HOME/dotfiles/bin/user:$PATH"
 # enable fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Auto-activate virtual environments on directory change
+auto_activate_venv() {
+    local venv_dirs=(venv .venv)
+    
+    for venv_dir in "${venv_dirs[@]}"; do
+        if [[ -f "$venv_dir/bin/activate" ]]; then
+            local venv_path="$PWD/$venv_dir"
+            if [[ "$venv_path" != "$VIRTUAL_ENV" ]]; then
+                source "$venv_dir/bin/activate"
+            fi
+            return
+        fi
+    done
+}
+
+chpwd() {
+    auto_activate_venv
+}
+
+auto_activate_venv
+
 # Source local configuration if it exists
 if [[ -f "$HOME/.zshrc.local" ]]; then
     source "$HOME/.zshrc.local"
