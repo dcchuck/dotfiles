@@ -26,6 +26,7 @@ alias n="pnpm"
 alias bs="brew services"
 alias dc="docker compose"
 alias lb=lbranch
+alias c=claude
 # Function
 alias flushdns="sudo killall -HUP mDNSResponder"
 alias sourceme="source $HOME/.zshrc"
