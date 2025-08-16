@@ -43,7 +43,7 @@ export PATH="$HOME/dotfiles/bin/user:$PATH"
 # Auto-activate virtual environments on directory change
 auto_activate_venv() {
     local venv_dirs=(venv .venv)
-    
+
     for venv_dir in "${venv_dirs[@]}"; do
         if [[ -f "$venv_dir/bin/activate" ]]; then
             local venv_path="$PWD/$venv_dir"
