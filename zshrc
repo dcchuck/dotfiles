@@ -27,6 +27,7 @@ alias bs="brew services"
 alias dc="docker compose"
 alias lb=lbranch
 alias c=claude
+alias x='codex -m gpt-5 -c model_reasoning_effort=high --search'
 # Function
 alias flushdns="sudo killall -HUP mDNSResponder"
 alias sourceme="source $HOME/.zshrc"
