@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+docker-compose ps --format "table {{.Name}}\t{{.Image}}\t{{.CreatedAt}}\t{{.Status}}"
