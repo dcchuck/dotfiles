@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+red() { printf "\033[31m%s\033[0m\n" "$*"; }
+green() { printf "\033[32m%s\033[0m\n" "$*"; }
+
+usage() {
+  red "Usage: rn <new-session-name>"
+}
+
+# Ensure we're inside tmux
+if [[ -z "${TMUX-}" ]]; then
+  red "Error: Not inside a tmux session."
+  red "Start or attach to one first (e.g., 'tmux new -s name')."
+  exit 1
+fi
+
+if [[ $# -ne 1 ]]; then
+  usage
+  exit 2
+fi
+
+new_name="$1"
+
+# Get current session name for a friendly message
+current_name="$(tmux display-message -p '#S' 2>/dev/null || echo "?")"
+
+# Disallow empty names
+if [[ -z "$new_name" ]]; then
+  red "Error: session name cannot be empty."
+  exit 2
+fi
+
+# Prevent accidental rename to an existing session name
+if tmux has-session -t "=${new_name}" 2>/dev/null; then
+  red "Error: a session named '${new_name}' already exists."
+  exit 1
+fi
+
+# Rename the current session
+if tmux rename-session "$new_name" 2>/dev/null; then
+  green "Renamed tmux session: '${current_name}' -> '${new_name}'"
+else
+  red "Failed to rename session to '${new_name}'."
+  exit 1
+fi
+
