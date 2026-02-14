@@ -28,7 +28,7 @@ alias dc="docker compose"
 alias lb=lbranch
 alias c=claude
 alias b=brew
-alias x='codex -m gpt-5 -c model_reasoning_effort=high --enable web_search_request'
+alias x='codex'
 # Function
 alias flushdns="sudo killall -HUP mDNSResponder"
 alias sourceme="source $HOME/.zshrc"
@@ -68,3 +68,5 @@ if [[ -f "$HOME/.zshrc.local" ]]; then
     source "$HOME/.zshrc.local"
 fi
 
+export GPG_TTY=$(tty)
+export PATH="$HOME/.local/bin:$PATH"
