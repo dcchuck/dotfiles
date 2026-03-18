@@ -11,7 +11,7 @@ ZSH_THEME="my"
 CASE_SENSITIVE="true"
 
 # installed via bin/setup
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions virtualenv)
 bindkey '^K' autosuggest-accept
 
 # this actually loads the plugins and does some other oh-my-zsh stuff
