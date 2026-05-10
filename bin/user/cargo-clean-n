@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# Run `cargo clean` in every Rust project under ~/n1..~/n5 that has a target/ dir.
+set -u
+
+# Ensure cargo is on PATH (non-interactive shells don't source ~/.cargo/env).
+if ! command -v cargo >/dev/null 2>&1; then
+  if [ -f "$HOME/.cargo/env" ]; then
+    # shellcheck disable=SC1091
+    . "$HOME/.cargo/env"
+  elif [ -x "$HOME/.cargo/bin/cargo" ]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
+  fi
+fi
+
+ROOTS=("$HOME/n1" "$HOME/n2" "$HOME/n3" "$HOME/n4" "$HOME/n5")
+
+total_before=0
+total_after=0
+cleaned=0
+failed=0
+
+human() { du -sh "$1" 2>/dev/null | awk '{print $1}'; }
+bytes() { du -sk "$1" 2>/dev/null | awk '{print $1}'; }
+
+for root in "${ROOTS[@]}"; do
+  [ -d "$root" ] || { echo "skip: $root (missing)"; continue; }
+
+  # Find every target/ dir whose sibling is a Cargo.toml.
+  while IFS= read -r -d '' target; do
+    proj="$(dirname "$target")"
+    [ -f "$proj/Cargo.toml" ] || continue
+
+    size_before=$(human "$target")
+    kb_before=$(bytes "$target")
+    total_before=$(( total_before + ${kb_before:-0} ))
+
+    echo "==> cargo clean in $proj  (target/ = ${size_before:-?})"
+    if (cd "$proj" && cargo clean); then
+      cleaned=$(( cleaned + 1 ))
+      kb_after=$(bytes "$target")
+      total_after=$(( total_after + ${kb_after:-0} ))
+    else
+      failed=$(( failed + 1 ))
+      echo "!!  failed: $proj" >&2
+    fi
+  done < <(find "$root" -type d -name target -prune -print0 2>/dev/null)
+done
+
+freed_kb=$(( total_before - total_after ))
+printf '\nDone. cleaned=%d failed=%d freed=~%d MB\n' \
+  "$cleaned" "$failed" "$(( freed_kb / 1024 ))"
