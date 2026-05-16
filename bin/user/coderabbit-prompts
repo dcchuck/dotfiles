@@ -1,0 +1,144 @@
+#!/usr/bin/env python3
+"""Fetch unresolved CodeRabbit threads on a PR and print their "Prompt for AI Agents" bodies."""
+
+import json
+import re
+import subprocess
+import sys
+from urllib.parse import urlparse
+
+HEADER = "Verify each finding against the current code and only fix it if needed."
+
+GRAPHQL_QUERY = """
+query($owner: String!, $name: String!, $number: Int!, $cursor: String) {
+  repository(owner: $owner, name: $name) {
+    pullRequest(number: $number) {
+      reviewThreads(first: 100, after: $cursor) {
+        pageInfo { hasNextPage endCursor }
+        nodes {
+          isResolved
+          comments(first: 50) {
+            nodes {
+              author { login }
+              body
+            }
+          }
+        }
+      }
+    }
+  }
+}
+"""
+
+PROMPT_RE = re.compile(
+    r"<summary>[^<]*?Prompt for AI Agents[^<]*?</summary>\s*```[^\n]*\n(.*?)\n```",
+    re.DOTALL,
+)
+
+
+def die(msg, code=1):
+    print(f"error: {msg}", file=sys.stderr)
+    sys.exit(code)
+
+
+def run_gh(*args):
+    try:
+        result = subprocess.run(
+            ["gh", *args], check=True, capture_output=True, text=True
+        )
+    except FileNotFoundError:
+        die("`gh` CLI not found on PATH")
+    except subprocess.CalledProcessError as e:
+        die(f"gh {' '.join(args)} failed:\n{e.stderr.strip()}")
+    return result.stdout
+
+
+def parse_url(url):
+    parsed = urlparse(url)
+    m = re.match(r"^/([^/]+)/([^/]+)/pull/(\d+)", parsed.path)
+    if not m:
+        die(f"could not parse PR URL: {url}")
+    return m.group(1), m.group(2), int(m.group(3))
+
+
+def resolve_target(arg):
+    if arg is None:
+        data = json.loads(run_gh("pr", "view", "--json", "number,url"))
+        owner, name, _ = parse_url(data["url"])
+        return owner, name, data["number"]
+    if arg.isdigit():
+        name_with_owner = json.loads(
+            run_gh("repo", "view", "--json", "nameWithOwner")
+        )["nameWithOwner"]
+        owner, name = name_with_owner.split("/", 1)
+        return owner, name, int(arg)
+    return parse_url(arg)
+
+
+def fetch_threads(owner, name, number):
+    threads = []
+    cursor = None
+    while True:
+        args = [
+            "api", "graphql",
+            "-F", f"owner={owner}",
+            "-F", f"name={name}",
+            "-F", f"number={number}",
+        ]
+        if cursor:
+            args += ["-F", f"cursor={cursor}"]
+        args += ["-f", f"query={GRAPHQL_QUERY}"]
+        data = json.loads(run_gh(*args))
+        pr = data.get("data", {}).get("repository", {}).get("pullRequest")
+        if pr is None:
+            die(f"PR #{number} not found in {owner}/{name}")
+        rt = pr["reviewThreads"]
+        threads.extend(rt["nodes"])
+        if not rt["pageInfo"]["hasNextPage"]:
+            break
+        cursor = rt["pageInfo"]["endCursor"]
+    return threads
+
+
+def extract_prompts(body):
+    results = []
+    for m in PROMPT_RE.finditer(body):
+        lines = m.group(1).splitlines()
+        i = 0
+        while i < len(lines) and not lines[i].strip():
+            i += 1
+        if i < len(lines) and HEADER in lines[i]:
+            i += 1
+        while i < len(lines) and not lines[i].strip():
+            i += 1
+        cleaned = "\n".join(lines[i:]).rstrip()
+        if cleaned:
+            results.append(cleaned)
+    return results
+
+
+def main():
+    arg = sys.argv[1] if len(sys.argv) > 1 else None
+    if arg in ("-h", "--help"):
+        print("usage: coderabbit-prompts.py [PR_NUMBER|PR_URL]")
+        return
+    owner, name, number = resolve_target(arg)
+    threads = fetch_threads(owner, name, number)
+
+    prompts = []
+    for t in threads:
+        if t["isResolved"]:
+            continue
+        for c in t["comments"]["nodes"]:
+            author = (c.get("author") or {}).get("login") or ""
+            if "coderabbit" not in author.lower():
+                continue
+            prompts.extend(extract_prompts(c["body"]))
+
+    print(HEADER)
+    print()
+    print("\n\n".join(prompts))
+
+
+if __name__ == "__main__":
+    main()
